@@ -1,0 +1,148 @@
+.control-label.required:after{
+  content: "*";
+  margin-left: 5px;
+  color: red;
+  position: absolute;
+  right: -5px;
+}
+.form-group {
+  .clearfix;
+  .control-label {
+    padding-top: 7px;
+    text-align: right;
+  }
+  .input-container {
+    .clearfix;
+  }
+}
+
+.form-input {
+  float: left;
+  margin-right: 20px;
+  border: 1px solid #979797;
+  &:focus {
+    border-color: #f89551;
+  }
+}
+
+.form-error {
+  clear: both;
+  padding-top: 10px;
+  color: red;
+}
+
+textarea.form-input {
+  height: 80px;
+}
+
+.checkbox-group-container, .radio-group-container {
+  padding-top: 4px;
+}
+
+.form.form-search {
+  .clearfix;
+  .form-group {
+    width: 200px;
+    float: left;
+    .control-label {
+      float: none;
+      width: 100%;
+      text-align: left;
+    }
+    .input-container {
+      float: none;
+      width: 100%;
+    }
+  }
+}
+
+.search-container {
+  .clearfix;
+  .search-form-container {
+    float: left;
+    width: 100% - 200px;
+  }
+  .search-btn-container {
+    float: right;
+    .control-label {
+      height: 24px;
+    }
+    .input-container {
+      padding-right: 0;
+    }
+    .btn {
+      float: right;
+    }
+  }
+  .hr-line-dashed {
+    display: none;
+  }
+}
+
+.autocomplete-helper-container {
+  position: relative;
+  .autocomplete-helper-list {
+    position: absolute;
+    list-style: outside none;
+    top: 36px;
+    background: white;
+    border: 1px solid black;
+    z-index: 10000;
+    width: 100%;
+    height: 150px;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    li {
+      padding: 2px 10px;
+      &:hover {
+        background: @color-base;
+      }
+    }
+  }
+}
+
+.multiple-auto-complete-container {
+
+  .value-field{
+    .value-item {
+      height: 35px;
+      float: left;
+      line-height: 35px;
+      margin-right: 5px;
+    }
+  }
+  .input-field {
+    position: relative;
+    .form-input {
+      width: 130px;
+    }
+    .input-add {
+      position: absolute;
+      left: 130px;
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
+    }
+    .autocomplete-helper-list {
+      position: absolute;
+      list-style: outside none;
+      top: 35px;
+      background: white;
+      border: 1px solid black;
+      z-index: 10000;
+      width: 100%;
+      height: 150px;
+      overflow-y: auto;
+      margin: 0;
+      padding: 0;
+      li {
+        padding: 2px 10px;
+        &:hover {
+          background: @color-base;
+        }
+      }
+    }
+  }
+}

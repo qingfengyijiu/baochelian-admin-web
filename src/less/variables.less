@@ -1,0 +1,135 @@
+@usvm: 100 / 1080;
+@usvw: @usvm * 1vw;
+
+@usfont: 'SourceHanSansCN-Regular', 'Microsoft YaHei';
+
+@color-base: #ed6000;
+@color-base-lighter: #f99551;
+@color-white: #ffffff;
+@color-blue: #3c94fc;
+@color-blue-lighter: #5bacfe;
+
+
+@color-bg-nav: #2f4050;
+@color-bg-nav-active: #f4f4f4;
+@width-border-nav: 3px;
+@color-border-nav-active: @color-base;
+@color-font-nav: #1a1a1a;
+@color-font-nav-secondary: #4a4a4a;
+@color-font-nav-active: @color-base-lighter;
+@font-size-nav-base: 14px;
+@color-bg-nav-collpase-btn: @color-base;
+@color-bg-nav-collapse-btn-hover: @color-base-lighter;
+@color-font-nav-collapse-btn: @color-white;
+@color-font-nav-collapse-btn-hover: @color-white;
+@width-navbar: 200px;
+
+
+@color-font-header-nav-collapse-btn: @color-base;
+@color-bg-header-nav-collapse-btn-hover: #dadada;
+
+@color-bg-btn-primary: @color-base;
+@color-bg-btn-primary-hover: @color-base-lighter;
+@color-font-btn-primary: @color-white;
+@color-font-btn-primary-hover: @color-white;
+@color-font-btn-disabled: #858585;
+@color-bg-btn-disabled: #d1d1d1;
+@color-border-btn-disabled: #c3c3c3;
+@color-font-btn-form: @color-white;
+@color-bg-btn-form: @color-blue;
+@color-font-btn-form-hover: @color-white;
+@color-bg-btn-form-hover: @color-blue-lighter;
+
+@bg-table: #fdfdfd;
+@bg-table-header: #ededed;
+@text-color-normal: #1a1a1a;
+
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+@padding-base-vertical:     6px;
+@padding-base-horizontal:   12px;
+@cursor-disabled:                not-allowed;
+
+@font-size-base:          14px;
+//** Unit-less `line-height` for use in components like buttons.
+@line-height-base:        1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
+//== Tables
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+//** Padding for `<th>`s and `<td>`s.
+@table-cell-padding:            8px;
+//** Padding for cells in `.table-condensed`.
+@table-condensed-cell-padding:  5px;
+
+//** Default background color used for all tables.
+@table-bg:                      transparent;
+//** Background color used for `.table-striped`.
+@table-bg-accent:               #f9f9f9;
+//** Background color used for `.table-hover`.
+@table-bg-hover:                #f5f5f5;
+@table-bg-active:               @table-bg-hover;
+
+//** Border color for table and cell borders.
+@table-border-color:            #ddd;
+
+
+
+
+@border-radius-base:        4px;
+
+//== Pagination
+//
+//##
+
+@pagination-color:                     #4d4d4d;
+@pagination-bg:                        #eee;
+@pagination-border:                    #ddd;
+
+@pagination-hover-color:               @color-white;
+@pagination-hover-bg:                  @color-base;
+@pagination-hover-border:              @color-base;
+
+@pagination-active-color:              @color-white;
+@pagination-active-bg:                 @color-base;
+@pagination-active-border:             @color-base;
+
+@pagination-disabled-color:            @gray-light;
+@pagination-disabled-bg:               #eee;
+@pagination-disabled-border:           #ddd;
+@pagination-border-radius: 60px;
+
+
+//== Pager
+//
+//##
+
+@pager-bg:                             @pagination-bg;
+@pager-border:                         @pagination-border;
+@pager-border-radius:                  15px;
+
+@pager-hover-bg:                       @pagination-hover-bg;
+
+@pager-active-bg:                      @pagination-active-bg;
+@pager-active-color:                   @pagination-active-color;
+
+@pager-disabled-color:                 @pagination-disabled-color;
+@link-color: #ddd;
+@link-hover-color:      darken(@link-color, 15%);
+
+
+@header-height: 50px;
+
+@color-bg-body: #f8f6f4;
+@color-bg-header: #fafafa;
+@color-bg-nav: #fafafa;
+@color-bg-content: #fdfdfd;
+
+
+@color-border-separator-layout: #e5e5e5;

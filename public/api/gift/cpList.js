@@ -1,0 +1,23 @@
+{
+  "cpList":[
+    {
+      "id":"1",
+      "cpRole":"公司",
+      "cpName":"apple",
+      "appID":"ssss",
+      "appName":"sfs",
+      "countId":"ssss",
+      "countName":"sdfhsi",
+      "open":"山东"
+    },{
+      "id":"1",
+      "cpRole":"公司",
+      "cpName":"apple",
+      "appID":"ssss",
+      "appName":"sfs",
+      "countId":"ssss",
+      "countName":"sdfhsi",
+      "open":"山东"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.header{
+  width:(1920-360-360)*1px;
+  margin: 0 auto;
+  height: 87px;
+  img{
+    width: 129px;
+    height: 100%;
+    margin-left: 4px;
+  }
+}
+.content-box{
+  width: 100%;
+  height: 600px;
+  background: url("../images/login_background.png") no-repeat center center;
+  .content{
+    width: (1920-360-360)*1px;
+    height: 600px;
+    margin: 0 auto;
+    position: relative;
+    .title{
+      position: absolute;
+      top:163px;
+      left: 133px;
+      h1{
+        height: 50px;
+        line-height: 50px;
+        font-family:STHeitiSC-Medium;
+        font-size:50px;
+        color:#454545;
+        letter-spacing:0px;
+        font-weight: normal;
+        text-align: right;
+      }
+      h3{
+        height: 28px;
+        line-height: 28px;
+        padding-top: 56px;
+        font-family:STHeitiSC-Light;
+        font-size:28px;
+        color:#85827f;
+        font-weight: 200;
+        text-align: right;
+      }
+    }
+  }
+  .login-box{
+    background:rgba(255,255,255,.80);
+    width:381px;
+    height:425px;
+    float: right;
+    margin: 88px 2px 0 0;
+    h2{
+      width: 100%;
+      height: 66px;
+      line-height: 66px;
+      font-family:STHeitiSC-Medium;
+      font-size:22px;
+      color:#2f2f2f;
+      text-align:center;
+      font-weight: normal;
+    }
+    .login-form{
+      width: 300px;
+      height: auto;
+      margin: 5px auto 0 auto;
+      .lyform-group{
+        margin-bottom: 25px;
+        .form-control{
+          background:#ffffff;
+          border:2px solid #f7f7f7;
+          border-radius:2px;
+          width:300px;
+          height:44px;
+        }
+        .validata{
+          background:#ffffff;
+          border:2px solid #f7f7f7;
+          border-radius:2px;
+          width:138px;
+          height:44px;
+        }
+        input{
+          padding-left: 13px;
+          padding-top: 2px;
+          font-family:STHeitiSC-Medium;
+          font-size:14px;
+          color:#2f2f2f;
+          text-align:left;
+          box-sizing: border-box;
+          &:hover{
+            border:2px solid #b3b3b3;
+          }
+          &:focus{
+            border:2px solid #b3b3b3;
+            box-shadow: none;
+            outline:none
+          }
+        }
+        img{
+          vertical-align: middle;
+          width: 138px;
+          height: 44px;
+          margin-left: 24px;
+          float: right;
+        }
+        .denglu{
+          width: 300px;
+          height: 46px;
+          background:#ed6000;
+          border-radius:2px;
+          width:300px;
+          height:46px;
+          font-family:STHeitiSC-Medium;
+          font-size:14px;
+          font-weight: normal;
+          color:#ffffff;
+          text-align:center;
+          border: none;
+          cursor: pointer;
+          &:hover{
+            background: #d15d00;
+          }
+        }
+        input.ace{
+          border:1px solid #979797;
+          border-radius:1px;
+          width:14px;
+          height:14px;
+        }
+        .lbl{
+          font-family:STHeitiSC-Medium;
+          font-size:14px;
+          color:#4d4d4d;
+          text-align:left;
+        }
+      }
+      .error{
+        color: #ff0000;
+      }
+    }
+  }
+}
+
+.footer{
+  width: 1200-886+360px;
+  margin: 20px auto 0 auto;
+  font-family:STHeitiSC-Medium;
+  font-size:12px;
+  color:#4d4d4d;
+  text-align:left;
+  padding-left: 886-360px;
+  padding-bottom: 40px;
+  line-height: 30px;
+}

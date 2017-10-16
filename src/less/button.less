@@ -1,0 +1,26 @@
+.btn {
+    background: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 4px 18px;
+    border: 1px none transparent;
+    &.btn-default {
+        border: 0px none;
+        background: #00B7FF;
+        color: white;
+    }
+    &.btn-primary {
+        background: @color-bg-btn-primary;
+        color: @color-font-btn-primary;
+        &:hover {
+            background: @color-bg-btn-primary-hover;
+            color: @color-font-btn-primary-hover;
+        }
+    }
+    &.disabled {
+        cursor: not-allowed;
+        border: 1px solid @color-border-btn-disabled !important;
+        background: @color-bg-btn-disabled !important;
+        color: @color-font-btn-disabled !important;
+    }
+}

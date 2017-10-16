@@ -1,0 +1,164 @@
+@import "./bootstrap/bootstrap.less";
+@import "./inspinia/style.less";
+@import "./font-awesome/font-awesome.less";
+@import "react-datetime/react-datetime.less";
+@import "./normalize.less";
+@import "./variables.less";
+@import "./helper.less";
+@import "./progress.less";
+@import "./modal.less";
+@import "./nav.less";
+@import "./form.less";
+@import "./button.less";
+@import "./table.less";
+@import "./pagination.less";
+@import "./pager.less";
+@import "./toast.less";
+@import "./business.less";
+@import "./components.less";
+@import "./page/dashboard.less";
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
+    background: @color-bg-body;
+}
+
+#app, #container {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+}
+
+.header {
+    background: @color-bg-header;
+    .clearfix;
+    position: relative;
+    padding-left: @width-navbar;
+    height: @header-height;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    border-bottom: 1px solid @color-border-separator-layout;
+    .collapse-btn {
+        float: left;
+        display: none;
+        margin-left: 20px;
+        margin-top: 10px;
+        color: @color-font-header-nav-collapse-btn;
+        background: transparent;
+        &:hover {
+            background: @color-bg-header-nav-collapse-btn-hover;
+        }
+    }
+    .header-right {
+        float: right;
+        margin-right: 15px;
+        list-style: none;
+        > li {
+            float: left;
+            padding: 15px 10px;
+            a {
+                cursor: pointer;
+                display: block;
+            }
+        }
+        .btn-sign-out {
+            color: @color-base;
+            padding-right: 20px;
+            &:hover {
+                color: @color-base-lighter;
+            }
+        }
+    }
+    &.full-width {
+        padding-left: 0;
+        .collapse-btn {
+            display: block;
+        }
+    }
+}
+
+.nav-container {
+    z-index: 200;
+    background-color: @color-bg-nav;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-right: 1px solid @color-border-separator-layout;
+}
+
+.content-container {
+    width: 100%;
+    height: 100vh;
+    padding-top: @header-height;
+    background: @color-bg-body;
+    padding-left: @width-navbar;
+    padding-right: 20px;
+    &.full-width {
+        padding-left: 0;
+    }
+    .content-body {
+        position: relative;
+        margin-top: 22px;
+        margin-left: 22px;
+        background: @color-bg-content;
+        min-height: 90%;
+        padding: 22px;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    }
+}
+
+.slideImg-list-item-img {
+    width: 150px;
+    height: 50px;
+    &.unkown {
+        background: gray;
+    }
+}
+
+.image-uploader {
+    margin-top: 10px;
+    width: 100px;
+    &.multiple {
+        float: left;
+        margin-right: 20px;
+    }
+    .previewer {
+        display: block;
+        width: 100px;
+        height: 100px;
+    }
+    &.unkonw {
+        float: left;
+        background: url(../images/image_uploader_bg_unknow.png);
+    }
+}
+.imgsize{
+    float: left;
+    margin: 50px 0 0 20px;
+}
+
+
+.grid-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
