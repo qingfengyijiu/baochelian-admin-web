@@ -16,9 +16,9 @@ class ListPage extends React.Component {
     }
 
     componentDidMount() {
-        document.title = '计费点信息';
+        document.title = '商品分组列表';
         let {actions} = this.props;
-        actions.utilAction.changeNavActive(navIds.COUNT_LIST);
+        actions.utilAction.changeNavActive(navIds.CLASSIFICATION_LIST);
         this.refresh();
     }
 

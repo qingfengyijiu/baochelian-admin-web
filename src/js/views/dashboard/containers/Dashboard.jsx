@@ -6,6 +6,10 @@ class Dashboard extends Component {
 		super(props);
 	}
 
+	componentDidMount() {
+		document.title = '运营概览';
+	}
+
 	getDashboardItems = items => {
 		return items.map((item, index) => {
 			return (

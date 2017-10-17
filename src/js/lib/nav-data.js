@@ -1,95 +1,106 @@
 export let navIds = {
-    SP_DATA: '100000',
-    SP_DATA_LIST: '100001',
-    SP_DATA_ADD_UPDATA: '100002',
-    SP_DATA_CODE_LIST: '100003',
-    SP_DATA_CODE_ADD_UPDATA: '100004',
-    SP_DATA_CODE_RATES_LIST: '100006',
-    SP_DATA_CODE_RATES_ADD_UPDATA: '100006',
-    SP_DATA_RATES_LIST: '100007',
-    SP_DATA_CODE_CONFIG: '100008',
-    SP_DATA_CODE_CONFIG_ADD: '100009',
-    SP_USERDATA: '200000',
-    SP_USERDATA_LIST: '200001',
-    SP_USERDATA_ADD: '200002',
-    CP: '300000',
-    CP_LIST: '300001',
-    CP_COUNTLIST: '300002',
-    APP_LIST: '300003',
-    COUNT_LIST: '300004',
-    CHARGE: '900000',
-    CP_CMD_FEE_LIMIT_LIST: '400000',
-    CP_CHECK_REDUCE_LIST: '500000',
-    BLACKLIST:'600000',
-    USER: '110000',
-    USER_LIST: '110001',
-    USER_ADD: '110002',
-    HELP: '700000'
+	DASHBOARD: '100000',
+	USER_LIST: '200000',
+	yy: '300000',
+	yy_ADD: '300001',
+	BRAND_LIST: '400000',
+	BRAND_ADD: '400001',
+	CLASSIFICATION_LIST: '500000',
+	CLASSIFICATION_ADD: '500001',
+	SPECIFICATION: '600000',
+	SPECIFICATION_CATEGORY_LIST: '600001',
+	SPECIFICATION_CATEGORY_ADD: '600002',
+	SPECIFICATION_LIST: '600003',
+	SPECIFICATION_ADD: '600004',
+	PRODUCT: '700000',
+	SPU_LIST: '700001',
+	SPU_ADD: '700002',
+	SKU_LIST: '700003',
+	SKU_ADD: '700004',
+	yhq: '800000',
+	yhq_ADD: '800001',
+	SERVICE_LIST: '900000',
+	SERVICE_ADD: '900001',
+	ORDER_LIST: '010000',
+	WITHDRAW_LIST: '110000',
+	FINANCE_REPORT: '210000',
+	ACCOUNT_LIST: '310000',
+	ACCOUNT_ADD: '310001'
 };
 
 export let navDatas = [{
-    id: "100000",
+    id: navIds.DASHBOARD,
     text: '运营概况',
     href: '/dashboard'
 }, {
-    id: '200000',
+    id: navIds.USER_LIST,
     text: '用户管理',
     href: '/user'
 }, {
-    id: '300000',
-    text: '订单管理',
-    href:'/order'
-}, {
-    id: '400000',
-    text: '提现管理',
-    href:'/withdraw'
-}, {
-	id: '500000',
+	id: navIds.BRAND_LIST,
 	text: '品牌管理',
 	href: '/brand',
 	children: [{
-		id: '500001',
+		id: navIds.BRAND_ADD,
 		text: '新增品牌',
 		href: '/brand/add'
 	}]
 }, {
-    id: '600000',
+	id: navIds.CLASSIFICATION_LIST,
+	text: '分组管理',
+	href: '/classification',
+	children: [{
+		id: navIds.CLASSIFICATION_ADD,
+		text: '新增分组',
+		href: '/classification/add'
+	}]
+}, {
+	id: navIds.SPECIFICATION,
+	text: '规格管理',
+	children: [{
+		id: navIds.SPECIFICATION_CATEGORY_LIST,
+		text: '规格种类列表',
+		href: '/specificationCategory'
+	}, {
+		id: navIds.SPECIFICATION_CATEGORY_ADD,
+		text: '新增规格种类',
+		href: '/specificationCategory/add'
+	}, {
+		id: navIds.SPECIFICATION_LIST,
+		text: '规格列表',
+		href: '/specification',
+	}, {
+		id: navIds.SPECIFICATION_ADD,
+		text: '新增规格',
+		href: '/specification/add'
+	}]
+}, {
+	id: navIds.PRODUCT,
+	text: '商品管理',
+	children: [{
+		id: navIds.SPU_LIST,
+		text: 'spu列表',
+		href: '/spu'
+	}, {
+		id: navIds.SPU_ADD,
+		text: '新增spu',
+		href: '/spu/add'
+	}, {
+		id: navIds.SKU_LIST,
+		text: 'sku列表',
+		href: '/sku'
+	}, {
+		id: navIds.SKU_ADD,
+		text: '新增sku'
+	}]
+}, {
+    id: navIds.SERVICE_LIST,
     text: '服务管理',
     href: '/service',
     children: [{
-        id: '600001',
+        id: navIds.SERVICE_ADD,
         text: '新增服务',
         href: '/service/add'
-    }, {
-        id: '600002',
-        text: '添加耗材',
-        href: '/equipment/add'
-    }]
-}, {
-	id: '700000',
-	text: '商品管理',
-	href: '/brand',
-	children: [{
-		id: '700001',
-		text: '添加商品',
-		href: '/brand/add'
-	}]
-}, {
-	id: '800000',
-	text: '商品组管理',
-	href: '/classification',
-	children: [{
-		id: '800001',
-		text: '添加商品组',
-		href: '/classification/add'
-	}]
-},{
-    id: '900000',
-    text: '分润管理',
-    children: [{
-        id: '900001',
-        text: '平台收费',
-        href: '/profit'
     }]
 }];
 

@@ -15,9 +15,9 @@ class AddPage extends React.Component {
     }
 
     componentDidMount() {
-        document.title = '新增品牌';
+        document.title = '新增规格种类';
         let {actions} = this.props;
-        actions.utilAction.changeNavActive(navIds.COUNT_LIST);
+        actions.utilAction.changeNavActive(navIds.SPECIFICATION_CATEGORY_ADD);
     }
 
     onSubmit() {

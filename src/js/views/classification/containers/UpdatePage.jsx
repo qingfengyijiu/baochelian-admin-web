@@ -15,9 +15,9 @@ class UpdatePage extends React.Component {
     }
 
     componentDidMount() {
-        document.title = '编辑品牌';
+        document.title = '编辑商品分组';
         let {form, actions, params} = this.props;
-        actions.utilAction.changeNavActive(navIds.COUNT_LIST);
+        actions.utilAction.changeNavActive(navIds.CLASSIFICATION_LIST);
         actions.utilAction.showLoading();
 
         ws.get({

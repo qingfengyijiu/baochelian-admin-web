@@ -22,25 +22,23 @@ export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            classificationList: [],
-            classificationListForSelect: []
+            specificationCategoryList: []
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         ws.get({
-            url: '/api/classification'
+            url: '/api/specificationCategory'
         }).then(response => {
             if(response.code == 0) {
-                let classificationList = response.data.classifications.map(item => {
+                let specificationCatetoryList = response.data.categories.map(item => {
 	                return {
 		                key: item.id,
-		                value: item.name,
-                        level: item.level
+		                value: item.name
 	                }
                 });
                 this.setState({
-                    classificationList: classificationList
+                    specificationCategoryList: specificationCatetoryList
                 });
             } else {
                 alert(response.msg);
@@ -52,18 +50,6 @@ export default class extends React.Component {
         return function(value) {
             let {form, actions} = this.props,
                 {classificationList} = this.state;
-            if(field == "level"){
-                if(value == null || value == 1) {
-                    this.setState({
-                        classificationListForSelect: []
-                    });
-                } else {
-                    console.log(classificationList);
-                    this.setState({
-                        classificationListForSelect: classificationList.filter(item => item.level == value - 1)
-                    })
-                }
-            }
             form.model[field] = value;
             form.errors[field] = validate(field)(value, form.model);
             actions.thisAction.changeForm(form);
@@ -86,23 +72,17 @@ export default class extends React.Component {
 
     render() {
         let {form, onSubmit} = this.props,
-            {classificationListForSelect} = this.state,
+            {specificationCategoryList} = this.state,
             {model, errors} = form;
 
         return (
             <div className="form count-form">
-                  <FormField label="分组名称" error={errors.name}>
-                      <FormField.Input value={model.name} onChange={this.onChangeField('name').bind(this)}/>
-                  </FormField>
-                  <FormField label="分组等级" error={errors.level}>
-                      <FormField.Select datas={levelList} valueType="number" value={model.level} onChange={this.onChangeField('level').bind(this)} />
-                  </FormField>
-                  <FormField label="分组父级">
-                      <FormField.Select datas={classificationListForSelect} value={model.parentClassificationLevel} onChange={this.onChangeField('parentClassificationLevel').bind(this)}/>
-                  </FormField>
-                  <FormField label="分组图标">
-                      <FileUploadButton/>
-                  </FormField>
+                <FormField label="规格种类" error={errors.specificationCategoryId}>
+                    <FormField.Select datas={specificationCategoryList} value={model.specificationCategoryId} onChange={this.onChangeField('specificationCategoryId').bind(this)} />
+                </FormField>
+                <FormField label="值" error={errors.specificationValue}>
+                    <FormField.Input value={model.specificationValue} onChange={this.onChangeField('specificationValue').bind(this)}/>
+                </FormField>
                   <FormField>
                       <div className="search-btn-container form form-search">
                           <FormField>

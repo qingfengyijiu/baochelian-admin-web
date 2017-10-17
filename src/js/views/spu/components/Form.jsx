@@ -22,12 +22,13 @@ export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            brandList: [],
             classificationList: [],
-            classificationListForSelect: []
+            specificationList: []
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         ws.get({
             url: '/api/classification'
         }).then(response => {
@@ -86,7 +87,7 @@ export default class extends React.Component {
 
     render() {
         let {form, onSubmit} = this.props,
-            {classificationListForSelect} = this.state,
+            {brandList, classificationList, specificationList} = this.state,
             {model, errors} = form;
 
         return (
@@ -98,7 +99,7 @@ export default class extends React.Component {
                     <FormField.Input value={model.description} onChange={this.onChangeField('description').bind(this)}/>
                 </FormField>
                 <FormField label="商品品牌" error={errors.brandId}>
-                    <FormField.Input value={model.brandId} onChange={this.onChangeField('brandId').bind(this)}/>
+                    <FormField.Select datas={brandList} value={model.brandId} onChange={this.onChangeField('brandId').bind(this)}/>
                 </FormField>
                 <FormField label="商品分组" error={errors.classificationId}>
                     <FormField.Input value={model.classificationId} onChange={this.onChangeField('classificationId').bind(this)}/>
@@ -119,10 +120,10 @@ export default class extends React.Component {
                     <FormField.Select datas={classificationListForSelect} value={model.parentClassificationLevel} onChange={this.onChangeField('parentClassificationLevel').bind(this)}/>
                 </FormField>
                 <FormField label="缩略图">
-                    <ImageUploader/>
+                    <ImageUploader value={model.thumbnail} onChange={this.onChangeField("thumbnail").bind(this)}/>
                 </FormField>
                 <FormField label="商品大图">
-                    <FormField.Select datas={classificationListForSelect} value={model.parentClassificationLevel} onChange={this.onChangeField('parentClassificationLevel').bind(this)}/>
+                    <ImageUploader value={model.picture} onChange={this.onChangeField("picture").bind(this)}/>
                 </FormField>
                 <FormField label="商品描述">
                 </FormField>

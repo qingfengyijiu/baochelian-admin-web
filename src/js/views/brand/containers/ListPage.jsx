@@ -16,9 +16,9 @@ class ListPage extends React.Component {
     }
 
     componentDidMount() {
-        document.title = '计费点信息';
+        document.title = '品牌管理';
         let {actions} = this.props;
-        actions.utilAction.changeNavActive(navIds.COUNT_LIST);
+        actions.utilAction.changeNavActive(navIds.BRAND_LIST);
         this.refresh();
     }
 

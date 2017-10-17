@@ -15,9 +15,9 @@ class UpdatePage extends React.Component {
     }
 
     componentDidMount() {
-        document.title = '编辑品牌';
+        document.title = '编辑规格';
         let {form, actions, params} = this.props;
-        actions.utilAction.changeNavActive(navIds.COUNT_LIST);
+        actions.utilAction.changeNavActive(navIds.SPECIFICATION_LIST);
         actions.utilAction.showLoading();
 
         ws.get({
@@ -25,7 +25,10 @@ class UpdatePage extends React.Component {
         }).then(function(response) {
             actions.utilAction.hideLoading();
             if(response.code == 0) {
-                form.model = response.data;
+                form.model = {
+                    specificationCategoryId: response.data.specificationCategoryId,
+                    specificationValue: response.data.value
+                };
                 actions.thisAction.changeForm(form);
             }
         });

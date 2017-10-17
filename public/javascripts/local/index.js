@@ -8681,9 +8681,9 @@
 
 	var _redux = __webpack_require__(550);
 
-	var _reactRouterRedux = __webpack_require__(647);
+	var _reactRouterRedux = __webpack_require__(648);
 
-	var _reduxThunk = __webpack_require__(652);
+	var _reduxThunk = __webpack_require__(653);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -8691,7 +8691,7 @@
 
 	var _history3 = _interopRequireDefault(_history2);
 
-	var _reducers = __webpack_require__(653);
+	var _reducers = __webpack_require__(654);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -38119,106 +38119,117 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+		value: true
 	});
 	exports.getNavData = getNavData;
 	var navIds = exports.navIds = {
-	    SP_DATA: '100000',
-	    SP_DATA_LIST: '100001',
-	    SP_DATA_ADD_UPDATA: '100002',
-	    SP_DATA_CODE_LIST: '100003',
-	    SP_DATA_CODE_ADD_UPDATA: '100004',
-	    SP_DATA_CODE_RATES_LIST: '100006',
-	    SP_DATA_CODE_RATES_ADD_UPDATA: '100006',
-	    SP_DATA_RATES_LIST: '100007',
-	    SP_DATA_CODE_CONFIG: '100008',
-	    SP_DATA_CODE_CONFIG_ADD: '100009',
-	    SP_USERDATA: '200000',
-	    SP_USERDATA_LIST: '200001',
-	    SP_USERDATA_ADD: '200002',
-	    CP: '300000',
-	    CP_LIST: '300001',
-	    CP_COUNTLIST: '300002',
-	    APP_LIST: '300003',
-	    COUNT_LIST: '300004',
-	    CHARGE: '900000',
-	    CP_CMD_FEE_LIMIT_LIST: '400000',
-	    CP_CHECK_REDUCE_LIST: '500000',
-	    BLACKLIST: '600000',
-	    USER: '110000',
-	    USER_LIST: '110001',
-	    USER_ADD: '110002',
-	    HELP: '700000'
+		DASHBOARD: '100000',
+		USER_LIST: '200000',
+		yy: '300000',
+		yy_ADD: '300001',
+		BRAND_LIST: '400000',
+		BRAND_ADD: '400001',
+		CLASSIFICATION_LIST: '500000',
+		CLASSIFICATION_ADD: '500001',
+		SPECIFICATION: '600000',
+		SPECIFICATION_CATEGORY_LIST: '600001',
+		SPECIFICATION_CATEGORY_ADD: '600002',
+		SPECIFICATION_LIST: '600003',
+		SPECIFICATION_ADD: '600004',
+		PRODUCT: '700000',
+		SPU_LIST: '700001',
+		SPU_ADD: '700002',
+		SKU_LIST: '700003',
+		SKU_ADD: '700004',
+		yhq: '800000',
+		yhq_ADD: '800001',
+		SERVICE_LIST: '900000',
+		SERVICE_ADD: '900001',
+		ORDER_LIST: '010000',
+		WITHDRAW_LIST: '110000',
+		FINANCE_REPORT: '210000',
+		ACCOUNT_LIST: '310000',
+		ACCOUNT_ADD: '310001'
 	};
 
 	var navDatas = exports.navDatas = [{
-	    id: "100000",
-	    text: '运营概况',
-	    href: '/dashboard'
+		id: navIds.DASHBOARD,
+		text: '运营概况',
+		href: '/dashboard'
 	}, {
-	    id: '200000',
-	    text: '用户管理',
-	    href: '/user'
+		id: navIds.USER_LIST,
+		text: '用户管理',
+		href: '/user'
 	}, {
-	    id: '300000',
-	    text: '订单管理',
-	    href: '/order'
+		id: navIds.BRAND_LIST,
+		text: '品牌管理',
+		href: '/brand',
+		children: [{
+			id: navIds.BRAND_ADD,
+			text: '新增品牌',
+			href: '/brand/add'
+		}]
 	}, {
-	    id: '400000',
-	    text: '提现管理',
-	    href: '/withdraw'
+		id: navIds.CLASSIFICATION_LIST,
+		text: '分组管理',
+		href: '/classification',
+		children: [{
+			id: navIds.CLASSIFICATION_ADD,
+			text: '新增分组',
+			href: '/classification/add'
+		}]
 	}, {
-	    id: '500000',
-	    text: '品牌管理',
-	    href: '/brand',
-	    children: [{
-	        id: '500001',
-	        text: '新增品牌',
-	        href: '/brand/add'
-	    }]
+		id: navIds.SPECIFICATION,
+		text: '规格管理',
+		children: [{
+			id: navIds.SPECIFICATION_CATEGORY_LIST,
+			text: '规格种类列表',
+			href: '/specificationCategory'
+		}, {
+			id: navIds.SPECIFICATION_CATEGORY_ADD,
+			text: '新增规格种类',
+			href: '/specificationCategory/add'
+		}, {
+			id: navIds.SPECIFICATION_LIST,
+			text: '规格列表',
+			href: '/specification'
+		}, {
+			id: navIds.SPECIFICATION_ADD,
+			text: '新增规格',
+			href: '/specification/add'
+		}]
 	}, {
-	    id: '600000',
-	    text: '服务管理',
-	    href: '/service',
-	    children: [{
-	        id: '600001',
-	        text: '新增服务',
-	        href: '/service/add'
-	    }, {
-	        id: '600002',
-	        text: '添加耗材',
-	        href: '/equipment/add'
-	    }]
+		id: navIds.PRODUCT,
+		text: '商品管理',
+		children: [{
+			id: navIds.SPU_LIST,
+			text: 'spu列表',
+			href: '/spu'
+		}, {
+			id: navIds.SPU_ADD,
+			text: '新增spu',
+			href: '/spu/add'
+		}, {
+			id: navIds.SKU_LIST,
+			text: 'sku列表',
+			href: '/sku'
+		}, {
+			id: navIds.SKU_ADD,
+			text: '新增sku'
+		}]
 	}, {
-	    id: '700000',
-	    text: '商品管理',
-	    href: '/brand',
-	    children: [{
-	        id: '700001',
-	        text: '添加商品',
-	        href: '/brand/add'
-	    }]
-	}, {
-	    id: '800000',
-	    text: '商品组管理',
-	    href: '/classification',
-	    children: [{
-	        id: '800001',
-	        text: '添加商品组',
-	        href: '/classification/add'
-	    }]
-	}, {
-	    id: '900000',
-	    text: '分润管理',
-	    children: [{
-	        id: '900001',
-	        text: '平台收费',
-	        href: '/profit'
-	    }]
+		id: navIds.SERVICE_LIST,
+		text: '服务管理',
+		href: '/service',
+		children: [{
+			id: navIds.SERVICE_ADD,
+			text: '新增服务',
+			href: '/service/add'
+		}]
 	}];
 
 	function getNavData(loginType, roleId, roleType) {
-	    return navDatas;
+		return navDatas;
 	}
 
 /***/ },
@@ -38493,7 +38504,7 @@
 /* 579 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -38524,16 +38535,16 @@
 			_this.getDashboardItems = function (items) {
 				return items.map(function (item, index) {
 					return _react2.default.createElement(
-						"div",
-						{ className: "dashboard-item", key: item.label },
+						'div',
+						{ className: 'dashboard-item', key: item.label },
 						_react2.default.createElement(
-							"div",
-							{ className: "item-label" },
+							'div',
+							{ className: 'item-label' },
 							item.label
 						),
 						_react2.default.createElement(
-							"div",
-							{ className: "item-value" },
+							'div',
+							{ className: 'item-value' },
 							item.value
 						)
 					);
@@ -38544,7 +38555,12 @@
 		}
 
 		_createClass(Dashboard, [{
-			key: "render",
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				document.title = '运营概览';
+			}
+		}, {
+			key: 'render',
 			value: function render() {
 				var items = [{
 					label: "今日流水",
@@ -38566,8 +38582,8 @@
 					value: "16678"
 				}];
 				return _react2.default.createElement(
-					"div",
-					{ className: "dashboard" },
+					'div',
+					{ className: 'dashboard' },
 					this.getDashboardItems(items)
 				);
 			}
@@ -40861,7 +40877,7 @@
 	            document.title = '新增品牌';
 	            var actions = this.props.actions;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.BRAND_ADD);
 	        }
 	    }, {
 	        key: 'onSubmit',
@@ -41191,10 +41207,10 @@
 	    _createClass(ListPage, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = '计费点信息';
+	            document.title = '品牌管理';
 	            var actions = this.props.actions;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.BRAND_LIST);
 	            this.refresh();
 	        }
 	    }, {
@@ -41615,7 +41631,7 @@
 	                actions = _props.actions,
 	                params = _props.params;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.BRAND_LIST);
 	            actions.utilAction.showLoading();
 
 	            _main.ws.get({
@@ -41791,10 +41807,10 @@
 	    _createClass(AddPage, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = '新增品牌';
+	            document.title = '新增商品分组';
 	            var actions = this.props.actions;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.CLASSIFICATION_ADD);
 	        }
 	    }, {
 	        key: 'onSubmit',
@@ -44745,10 +44761,10 @@
 	    _createClass(ListPage, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = '计费点信息';
+	            document.title = '商品分组列表';
 	            var actions = this.props.actions;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.CLASSIFICATION_LIST);
 	            this.refresh();
 	        }
 	    }, {
@@ -45175,13 +45191,13 @@
 	    _createClass(UpdatePage, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = '编辑品牌';
+	            document.title = '编辑商品分组';
 	            var _props = this.props,
 	                form = _props.form,
 	                actions = _props.actions,
 	                params = _props.params;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.CLASSIFICATION_LIST);
 	            actions.utilAction.showLoading();
 
 	            _main.ws.get({
@@ -45357,10 +45373,10 @@
 	    _createClass(AddPage, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = '新增品牌';
+	            document.title = '新增规格种类';
 	            var actions = this.props.actions;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.SPECIFICATION_CATEGORY_ADD);
 	        }
 	    }, {
 	        key: 'onSubmit',
@@ -45708,10 +45724,10 @@
 	    _createClass(ListPage, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = '规格种类管理';
+	            document.title = '规格种类列表';
 	            var actions = this.props.actions;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.SPECIFICATION_CATEGORY_LIST);
 	            this.refresh();
 	        }
 	    }, {
@@ -46120,13 +46136,13 @@
 	    _createClass(UpdatePage, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = '编辑品牌';
+	            document.title = '编辑规格种类';
 	            var _props = this.props,
 	                form = _props.form,
 	                actions = _props.actions,
 	                params = _props.params;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.SPECIFICATION_CATEGORY_LIST);
 	            actions.utilAction.showLoading();
 
 	            _main.ws.get({
@@ -46302,10 +46318,10 @@
 	    _createClass(AddPage, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = '新增品牌';
+	            document.title = '新增规格';
 	            var actions = this.props.actions;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.SPECIFICATION_ADD);
 	        }
 	    }, {
 	        key: 'onSubmit',
@@ -46425,30 +46441,28 @@
 	        var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
 
 	        _this.state = {
-	            classificationList: [],
-	            classificationListForSelect: []
+	            specificationCategoryList: []
 	        };
 	        return _this;
 	    }
 
 	    _createClass(_class, [{
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
 	            var _this2 = this;
 
 	            _ws2.default.get({
-	                url: '/api/classification'
+	                url: '/api/specificationCategory'
 	            }).then(function (response) {
 	                if (response.code == 0) {
-	                    var classificationList = response.data.classifications.map(function (item) {
+	                    var specificationCatetoryList = response.data.categories.map(function (item) {
 	                        return {
 	                            key: item.id,
-	                            value: item.name,
-	                            level: item.level
+	                            value: item.name
 	                        };
 	                    });
 	                    _this2.setState({
-	                        classificationList: classificationList
+	                        specificationCategoryList: specificationCatetoryList
 	                    });
 	                } else {
 	                    alert(response.msg);
@@ -46464,20 +46478,6 @@
 	                    actions = _props.actions,
 	                    classificationList = this.state.classificationList;
 
-	                if (field == "level") {
-	                    if (value == null || value == 1) {
-	                        this.setState({
-	                            classificationListForSelect: []
-	                        });
-	                    } else {
-	                        console.log(classificationList);
-	                        this.setState({
-	                            classificationListForSelect: classificationList.filter(function (item) {
-	                                return item.level == value - 1;
-	                            })
-	                        });
-	                    }
-	                }
 	                form.model[field] = value;
 	                form.errors[field] = (0, _validate.validate)(field)(value, form.model);
 	                actions.thisAction.changeForm(form);
@@ -46508,7 +46508,7 @@
 	            var _props2 = this.props,
 	                form = _props2.form,
 	                onSubmit = _props2.onSubmit,
-	                classificationListForSelect = this.state.classificationListForSelect,
+	                specificationCategoryList = this.state.specificationCategoryList,
 	                model = form.model,
 	                errors = form.errors;
 
@@ -46518,23 +46518,13 @@
 	                { className: 'form count-form' },
 	                _react2.default.createElement(
 	                    _FormField2.default,
-	                    { label: '\u5206\u7EC4\u540D\u79F0', error: errors.name },
-	                    _react2.default.createElement(_FormField2.default.Input, { value: model.name, onChange: this.onChangeField('name').bind(this) })
+	                    { label: '\u89C4\u683C\u79CD\u7C7B', error: errors.specificationCategoryId },
+	                    _react2.default.createElement(_FormField2.default.Select, { datas: specificationCategoryList, value: model.specificationCategoryId, onChange: this.onChangeField('specificationCategoryId').bind(this) })
 	                ),
 	                _react2.default.createElement(
 	                    _FormField2.default,
-	                    { label: '\u5206\u7EC4\u7B49\u7EA7', error: errors.level },
-	                    _react2.default.createElement(_FormField2.default.Select, { datas: levelList, valueType: 'number', value: model.level, onChange: this.onChangeField('level').bind(this) })
-	                ),
-	                _react2.default.createElement(
-	                    _FormField2.default,
-	                    { label: '\u5206\u7EC4\u7236\u7EA7' },
-	                    _react2.default.createElement(_FormField2.default.Select, { datas: classificationListForSelect, value: model.parentClassificationLevel, onChange: this.onChangeField('parentClassificationLevel').bind(this) })
-	                ),
-	                _react2.default.createElement(
-	                    _FormField2.default,
-	                    { label: '\u5206\u7EC4\u56FE\u6807' },
-	                    _react2.default.createElement(_FileUploadButton2.default, null)
+	                    { label: '\u503C', error: errors.specificationValue },
+	                    _react2.default.createElement(_FormField2.default.Input, { value: model.specificationValue, onChange: this.onChangeField('specificationValue').bind(this) })
 	                ),
 	                _react2.default.createElement(
 	                    _FormField2.default,
@@ -46709,10 +46699,10 @@
 	    _createClass(ListPage, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = '规格种类管理';
+	            document.title = '规格管理';
 	            var actions = this.props.actions;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.SPECIFICATION_LIST);
 	            this.refresh();
 	        }
 	    }, {
@@ -47124,13 +47114,13 @@
 	    _createClass(UpdatePage, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = '编辑品牌';
+	            document.title = '编辑规格';
 	            var _props = this.props,
 	                form = _props.form,
 	                actions = _props.actions,
 	                params = _props.params;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.SPECIFICATION_LIST);
 	            actions.utilAction.showLoading();
 
 	            _main.ws.get({
@@ -47138,7 +47128,10 @@
 	            }).then(function (response) {
 	                actions.utilAction.hideLoading();
 	                if (response.code == 0) {
-	                    form.model = response.data;
+	                    form.model = {
+	                        specificationCategoryId: response.data.specificationCategoryId,
+	                        specificationValue: response.data.value
+	                    };
 	                    actions.thisAction.changeForm(form);
 	                }
 	            });
@@ -47225,11 +47218,11 @@
 
 	var _AddPage2 = _interopRequireDefault(_AddPage);
 
-	var _ListPage = __webpack_require__(643);
+	var _ListPage = __webpack_require__(644);
 
 	var _ListPage2 = _interopRequireDefault(_ListPage);
 
-	var _UpdatePage = __webpack_require__(646);
+	var _UpdatePage = __webpack_require__(647);
 
 	var _UpdatePage2 = _interopRequireDefault(_UpdatePage);
 
@@ -47267,7 +47260,7 @@
 
 	var _redux = __webpack_require__(550);
 
-	var _action = __webpack_require__(642);
+	var _action = __webpack_require__(643);
 
 	var _action2 = _interopRequireDefault(_action);
 
@@ -47306,10 +47299,10 @@
 	    _createClass(AddPage, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = '新增品牌';
+	            document.title = '新增SPU';
 	            var actions = this.props.actions;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.SPU_ADD);
 	        }
 	    }, {
 	        key: 'onSubmit',
@@ -47397,7 +47390,7 @@
 
 	var _ws2 = _interopRequireDefault(_ws);
 
-	var _ImageUploader = __webpack_require__(675);
+	var _ImageUploader = __webpack_require__(642);
 
 	var _ImageUploader2 = _interopRequireDefault(_ImageUploader);
 
@@ -47429,15 +47422,16 @@
 	        var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
 
 	        _this.state = {
+	            brandList: [],
 	            classificationList: [],
-	            classificationListForSelect: []
+	            specificationList: []
 	        };
 	        return _this;
 	    }
 
 	    _createClass(_class, [{
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
 	            var _this2 = this;
 
 	            _ws2.default.get({
@@ -47512,7 +47506,10 @@
 	            var _props2 = this.props,
 	                form = _props2.form,
 	                onSubmit = _props2.onSubmit,
-	                classificationListForSelect = this.state.classificationListForSelect,
+	                _state = this.state,
+	                brandList = _state.brandList,
+	                classificationList = _state.classificationList,
+	                specificationList = _state.specificationList,
 	                model = form.model,
 	                errors = form.errors;
 
@@ -47533,7 +47530,7 @@
 	                _react2.default.createElement(
 	                    _FormField2.default,
 	                    { label: '\u5546\u54C1\u54C1\u724C', error: errors.brandId },
-	                    _react2.default.createElement(_FormField2.default.Input, { value: model.brandId, onChange: this.onChangeField('brandId').bind(this) })
+	                    _react2.default.createElement(_FormField2.default.Select, { datas: brandList, value: model.brandId, onChange: this.onChangeField('brandId').bind(this) })
 	                ),
 	                _react2.default.createElement(
 	                    _FormField2.default,
@@ -47568,12 +47565,12 @@
 	                _react2.default.createElement(
 	                    _FormField2.default,
 	                    { label: '\u7F29\u7565\u56FE' },
-	                    _react2.default.createElement(_ImageUploader2.default, null)
+	                    _react2.default.createElement(_ImageUploader2.default, { value: model.thumbnail, onChange: this.onChangeField("thumbnail").bind(this) })
 	                ),
 	                _react2.default.createElement(
 	                    _FormField2.default,
 	                    { label: '\u5546\u54C1\u5927\u56FE' },
-	                    _react2.default.createElement(_FormField2.default.Select, { datas: classificationListForSelect, value: model.parentClassificationLevel, onChange: this.onChangeField('parentClassificationLevel').bind(this) })
+	                    _react2.default.createElement(_ImageUploader2.default, { value: model.picture, onChange: this.onChangeField("picture").bind(this) })
 	                ),
 	                _react2.default.createElement(_FormField2.default, { label: '\u5546\u54C1\u63CF\u8FF0' }),
 	                _react2.default.createElement(
@@ -47670,6 +47667,108 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(300);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDropzone = __webpack_require__(606);
+
+	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
+
+	var _superagent = __webpack_require__(607);
+
+	var _superagent2 = _interopRequireDefault(_superagent);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _class = function (_React$Component) {
+	    _inherits(_class, _React$Component);
+
+	    function _class(props) {
+	        _classCallCheck(this, _class);
+
+	        var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
+
+	        _this.onDrop = _this.onDrop.bind(_this);
+	        _this.onOpenClick = _this.onOpenClick.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(_class, [{
+	        key: 'onDrop',
+	        value: function onDrop(acceptedFiles) {
+	            var onChange = this.props.onChange;
+
+	            if (acceptedFiles && acceptedFiles.length > 0) {
+	                var file = acceptedFiles[0];
+	                _superagent2.default.put('/api/oss').attach('file', file).on('progress', function (e) {
+	                    //console.log(e.percent);
+	                }).end(function (err, response) {
+	                    if (err) {
+	                        alert(err);
+	                    } else {
+	                        if (typeof onChange === 'function') {
+	                            var fileUrl = response.body && response.body.data ? response.body.data.url : null;
+	                            onChange(fileUrl);
+	                        }
+	                    }
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'onOpenClick',
+	        value: function onOpenClick() {
+	            this.refs.dropzone.open();
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props,
+	                value = _props.value,
+	                onChange = _props.onChange,
+	                containerClass = _props.containerClass,
+	                containerProps = _props.containerProps,
+	                imgProps = _props.imgProps,
+	                other = _objectWithoutProperties(_props, ['value', 'onChange', 'containerClass', 'containerProps', 'imgProps']);
+
+	            containerClass = containerClass ? containerClass : 'image-uploader';
+	            containerClass = containerClass + (value == null ? ' unkonw' : '');
+	            return _react2.default.createElement(
+	                'div',
+	                _extends({ className: containerClass, onClick: this.onOpenClick }, containerProps),
+	                _react2.default.createElement(_reactDropzone2.default, _extends({ ref: 'dropzone', onDrop: this.onDrop, style: { display: 'none' } }, other)),
+	                _react2.default.createElement('img', _extends({ src: value, className: 'previewer' }, imgProps))
+	            );
+	        }
+	    }]);
+
+	    return _class;
+	}(_react2.default.Component);
+
+	exports.default = _class;
+
+/***/ },
+/* 643 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
@@ -47683,7 +47782,7 @@
 	exports.default = base;
 
 /***/ },
-/* 643 */
+/* 644 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47702,11 +47801,11 @@
 
 	var _reactRouter = __webpack_require__(477);
 
-	var _ListGrid = __webpack_require__(644);
+	var _ListGrid = __webpack_require__(645);
 
 	var _ListGrid2 = _interopRequireDefault(_ListGrid);
 
-	var _SearchForm = __webpack_require__(645);
+	var _SearchForm = __webpack_require__(646);
 
 	var _SearchForm2 = _interopRequireDefault(_SearchForm);
 
@@ -47714,7 +47813,7 @@
 
 	var _redux = __webpack_require__(550);
 
-	var _action = __webpack_require__(642);
+	var _action = __webpack_require__(643);
 
 	var _action2 = _interopRequireDefault(_action);
 
@@ -47749,10 +47848,10 @@
 	    _createClass(ListPage, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = '规格种类管理';
+	            document.title = 'SPU';
 	            var actions = this.props.actions;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.SPU_LIST);
 	            this.refresh();
 	        }
 	    }, {
@@ -47812,7 +47911,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ListPage);
 
 /***/ },
-/* 644 */
+/* 645 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47991,7 +48090,7 @@
 	exports.default = _class;
 
 /***/ },
-/* 645 */
+/* 646 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48118,7 +48217,7 @@
 	exports.default = _class;
 
 /***/ },
-/* 646 */
+/* 647 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48141,7 +48240,7 @@
 
 	var _redux = __webpack_require__(550);
 
-	var _action = __webpack_require__(642);
+	var _action = __webpack_require__(643);
 
 	var _action2 = _interopRequireDefault(_action);
 
@@ -48180,13 +48279,13 @@
 	    _createClass(UpdatePage, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = '编辑品牌';
+	            document.title = '编辑SPU';
 	            var _props = this.props,
 	                form = _props.form,
 	                actions = _props.actions,
 	                params = _props.params;
 
-	            actions.utilAction.changeNavActive(_main.navIds.COUNT_LIST);
+	            actions.utilAction.changeNavActive(_main.navIds.SPU_LIST);
 	            actions.utilAction.showLoading();
 
 	            _main.ws.get({
@@ -48262,7 +48361,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(UpdatePage);
 
 /***/ },
-/* 647 */
+/* 648 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48272,7 +48371,7 @@
 	});
 	exports.routerMiddleware = exports.routerActions = exports.goForward = exports.goBack = exports.go = exports.replace = exports.push = exports.CALL_HISTORY_METHOD = exports.routerReducer = exports.LOCATION_CHANGE = exports.syncHistoryWithStore = undefined;
 
-	var _reducer = __webpack_require__(648);
+	var _reducer = __webpack_require__(649);
 
 	Object.defineProperty(exports, 'LOCATION_CHANGE', {
 	  enumerable: true,
@@ -48287,7 +48386,7 @@
 	  }
 	});
 
-	var _actions = __webpack_require__(649);
+	var _actions = __webpack_require__(650);
 
 	Object.defineProperty(exports, 'CALL_HISTORY_METHOD', {
 	  enumerable: true,
@@ -48332,11 +48431,11 @@
 	  }
 	});
 
-	var _sync = __webpack_require__(650);
+	var _sync = __webpack_require__(651);
 
 	var _sync2 = _interopRequireDefault(_sync);
 
-	var _middleware = __webpack_require__(651);
+	var _middleware = __webpack_require__(652);
 
 	var _middleware2 = _interopRequireDefault(_middleware);
 
@@ -48346,7 +48445,7 @@
 	exports.routerMiddleware = _middleware2['default'];
 
 /***/ },
-/* 648 */
+/* 649 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48389,7 +48488,7 @@
 	}
 
 /***/ },
-/* 649 */
+/* 650 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48431,7 +48530,7 @@
 	var routerActions = exports.routerActions = { push: push, replace: replace, go: go, goBack: goBack, goForward: goForward };
 
 /***/ },
-/* 650 */
+/* 651 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48444,7 +48543,7 @@
 
 	exports['default'] = syncHistoryWithStore;
 
-	var _reducer = __webpack_require__(648);
+	var _reducer = __webpack_require__(649);
 
 	var defaultSelectLocationState = function defaultSelectLocationState(state) {
 	  return state.routing;
@@ -48589,7 +48688,7 @@
 	}
 
 /***/ },
-/* 651 */
+/* 652 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48599,7 +48698,7 @@
 	});
 	exports['default'] = routerMiddleware;
 
-	var _actions = __webpack_require__(649);
+	var _actions = __webpack_require__(650);
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
@@ -48627,7 +48726,7 @@
 	}
 
 /***/ },
-/* 652 */
+/* 653 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48655,7 +48754,7 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 653 */
+/* 654 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48666,35 +48765,35 @@
 
 	var _redux = __webpack_require__(550);
 
-	var _reducer = __webpack_require__(654);
+	var _reducer = __webpack_require__(655);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
-	var _reducer3 = __webpack_require__(658);
+	var _reducer3 = __webpack_require__(659);
 
 	var _reducer4 = _interopRequireDefault(_reducer3);
 
-	var _reducer5 = __webpack_require__(660);
+	var _reducer5 = __webpack_require__(661);
 
 	var _reducer6 = _interopRequireDefault(_reducer5);
 
-	var _reducer7 = __webpack_require__(664);
+	var _reducer7 = __webpack_require__(665);
 
 	var _reducer8 = _interopRequireDefault(_reducer7);
 
-	var _reducer9 = __webpack_require__(666);
+	var _reducer9 = __webpack_require__(667);
 
 	var _reducer10 = _interopRequireDefault(_reducer9);
 
-	var _reducer11 = __webpack_require__(668);
+	var _reducer11 = __webpack_require__(669);
 
 	var _reducer12 = _interopRequireDefault(_reducer11);
 
-	var _reducer13 = __webpack_require__(670);
+	var _reducer13 = __webpack_require__(671);
 
 	var _reducer14 = _interopRequireDefault(_reducer13);
 
-	var _reducer15 = __webpack_require__(672);
+	var _reducer15 = __webpack_require__(673);
 
 	var _reducer16 = _interopRequireDefault(_reducer15);
 
@@ -48712,7 +48811,7 @@
 	});
 
 /***/ },
-/* 654 */
+/* 655 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48728,11 +48827,11 @@
 	    return state.set("loading", loading(state.get("loading"), action)).set("toast", toast(state.get("toast"), action)).set("nav", nav(state.get("nav"), action));
 	};
 
-	var _store = __webpack_require__(655);
+	var _store = __webpack_require__(656);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _immutableProcess = __webpack_require__(657);
+	var _immutableProcess = __webpack_require__(658);
 
 	var _immutableProcess2 = _interopRequireDefault(_immutableProcess);
 
@@ -48784,7 +48883,7 @@
 	}
 
 /***/ },
-/* 655 */
+/* 656 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48793,7 +48892,7 @@
 	    value: true
 	});
 
-	var _immutable = __webpack_require__(656);
+	var _immutable = __webpack_require__(657);
 
 	var _immutable2 = _interopRequireDefault(_immutable);
 
@@ -48813,7 +48912,7 @@
 	});
 
 /***/ },
-/* 656 */
+/* 657 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -53797,7 +53896,7 @@
 	}));
 
 /***/ },
-/* 657 */
+/* 658 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53813,14 +53912,14 @@
 	    return value;
 	};
 
-	var _immutable = __webpack_require__(656);
+	var _immutable = __webpack_require__(657);
 
 	var _immutable2 = _interopRequireDefault(_immutable);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 658 */
+/* 659 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53844,18 +53943,18 @@
 	    }
 	};
 
-	var _store = __webpack_require__(659);
+	var _store = __webpack_require__(660);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _immutableProcess = __webpack_require__(657);
+	var _immutableProcess = __webpack_require__(658);
 
 	var _immutableProcess2 = _interopRequireDefault(_immutableProcess);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 659 */
+/* 660 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53864,7 +53963,7 @@
 	    value: true
 	});
 
-	var _immutable = __webpack_require__(656);
+	var _immutable = __webpack_require__(657);
 
 	var _immutable2 = _interopRequireDefault(_immutable);
 
@@ -53876,7 +53975,7 @@
 	});
 
 /***/ },
-/* 660 */
+/* 661 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53892,18 +53991,18 @@
 	    return (0, _reducerBase2.default)("sp", _store2.default, state, action);
 	};
 
-	var _store = __webpack_require__(661);
+	var _store = __webpack_require__(662);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _reducerBase = __webpack_require__(663);
+	var _reducerBase = __webpack_require__(664);
 
 	var _reducerBase2 = _interopRequireDefault(_reducerBase);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 661 */
+/* 662 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53914,11 +54013,11 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _immutable = __webpack_require__(656);
+	var _immutable = __webpack_require__(657);
 
 	var _immutable2 = _interopRequireDefault(_immutable);
 
-	var _storeBase = __webpack_require__(662);
+	var _storeBase = __webpack_require__(663);
 
 	var _storeBase2 = _interopRequireDefault(_storeBase);
 
@@ -53952,7 +54051,7 @@
 	exports.default = _immutable2.default.fromJS(_extends({}, store));
 
 /***/ },
-/* 662 */
+/* 663 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -53977,7 +54076,7 @@
 	};
 
 /***/ },
-/* 663 */
+/* 664 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53990,11 +54089,11 @@
 	    return state.set('form', form(model, initialState, state.get('form'), action)).set('list', list(model, initialState, state.get('list'), action));
 	};
 
-	var _immutableProcess = __webpack_require__(657);
+	var _immutableProcess = __webpack_require__(658);
 
 	var _immutableProcess2 = _interopRequireDefault(_immutableProcess);
 
-	var _immutable = __webpack_require__(656);
+	var _immutable = __webpack_require__(657);
 
 	var _immutable2 = _interopRequireDefault(_immutable);
 
@@ -54045,7 +54144,7 @@
 	}
 
 /***/ },
-/* 664 */
+/* 665 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54061,18 +54160,18 @@
 	    return (0, _reducerBase2.default)('BRAND', _store2.default, state, action);
 	};
 
-	var _store = __webpack_require__(665);
+	var _store = __webpack_require__(666);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _reducerBase = __webpack_require__(663);
+	var _reducerBase = __webpack_require__(664);
 
 	var _reducerBase2 = _interopRequireDefault(_reducerBase);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 665 */
+/* 666 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54083,11 +54182,11 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _immutable = __webpack_require__(656);
+	var _immutable = __webpack_require__(657);
 
 	var _immutable2 = _interopRequireDefault(_immutable);
 
-	var _storeBase = __webpack_require__(662);
+	var _storeBase = __webpack_require__(663);
 
 	var _storeBase2 = _interopRequireDefault(_storeBase);
 
@@ -54103,7 +54202,7 @@
 	exports.default = _immutable2.default.fromJS(_extends({}, store));
 
 /***/ },
-/* 666 */
+/* 667 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54119,18 +54218,18 @@
 	    return (0, _reducerBase2.default)('CLASSIFICATION', _store2.default, state, action);
 	};
 
-	var _store = __webpack_require__(667);
+	var _store = __webpack_require__(668);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _reducerBase = __webpack_require__(663);
+	var _reducerBase = __webpack_require__(664);
 
 	var _reducerBase2 = _interopRequireDefault(_reducerBase);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 667 */
+/* 668 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54141,11 +54240,11 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _immutable = __webpack_require__(656);
+	var _immutable = __webpack_require__(657);
 
 	var _immutable2 = _interopRequireDefault(_immutable);
 
-	var _storeBase = __webpack_require__(662);
+	var _storeBase = __webpack_require__(663);
 
 	var _storeBase2 = _interopRequireDefault(_storeBase);
 
@@ -54161,7 +54260,7 @@
 	exports.default = _immutable2.default.fromJS(_extends({}, store));
 
 /***/ },
-/* 668 */
+/* 669 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54177,18 +54276,18 @@
 	    return (0, _reducerBase2.default)('SPECIFICATION_CATEGORY', _store2.default, state, action);
 	};
 
-	var _store = __webpack_require__(669);
+	var _store = __webpack_require__(670);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _reducerBase = __webpack_require__(663);
+	var _reducerBase = __webpack_require__(664);
 
 	var _reducerBase2 = _interopRequireDefault(_reducerBase);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 669 */
+/* 670 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54199,11 +54298,11 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _immutable = __webpack_require__(656);
+	var _immutable = __webpack_require__(657);
 
 	var _immutable2 = _interopRequireDefault(_immutable);
 
-	var _storeBase = __webpack_require__(662);
+	var _storeBase = __webpack_require__(663);
 
 	var _storeBase2 = _interopRequireDefault(_storeBase);
 
@@ -54219,7 +54318,7 @@
 	exports.default = _immutable2.default.fromJS(_extends({}, store));
 
 /***/ },
-/* 670 */
+/* 671 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54235,18 +54334,18 @@
 	    return (0, _reducerBase2.default)('SPECIFICATION', _store2.default, state, action);
 	};
 
-	var _store = __webpack_require__(671);
+	var _store = __webpack_require__(672);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _reducerBase = __webpack_require__(663);
+	var _reducerBase = __webpack_require__(664);
 
 	var _reducerBase2 = _interopRequireDefault(_reducerBase);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 671 */
+/* 672 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54257,11 +54356,11 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _immutable = __webpack_require__(656);
+	var _immutable = __webpack_require__(657);
 
 	var _immutable2 = _interopRequireDefault(_immutable);
 
-	var _storeBase = __webpack_require__(662);
+	var _storeBase = __webpack_require__(663);
 
 	var _storeBase2 = _interopRequireDefault(_storeBase);
 
@@ -54277,7 +54376,7 @@
 	exports.default = _immutable2.default.fromJS(_extends({}, store));
 
 /***/ },
-/* 672 */
+/* 673 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54293,18 +54392,18 @@
 	    return (0, _reducerBase2.default)('SPU', _store2.default, state, action);
 	};
 
-	var _store = __webpack_require__(673);
+	var _store = __webpack_require__(674);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _reducerBase = __webpack_require__(663);
+	var _reducerBase = __webpack_require__(664);
 
 	var _reducerBase2 = _interopRequireDefault(_reducerBase);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 673 */
+/* 674 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54315,11 +54414,11 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _immutable = __webpack_require__(656);
+	var _immutable = __webpack_require__(657);
 
 	var _immutable2 = _interopRequireDefault(_immutable);
 
-	var _storeBase = __webpack_require__(662);
+	var _storeBase = __webpack_require__(663);
 
 	var _storeBase2 = _interopRequireDefault(_storeBase);
 
@@ -54333,109 +54432,6 @@
 	_lodash2.default.extend(store, _storeBase2.default);
 
 	exports.default = _immutable2.default.fromJS(_extends({}, store));
-
-/***/ },
-/* 674 */,
-/* 675 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(300);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDropzone = __webpack_require__(606);
-
-	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
-
-	var _superagent = __webpack_require__(607);
-
-	var _superagent2 = _interopRequireDefault(_superagent);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _class = function (_React$Component) {
-	    _inherits(_class, _React$Component);
-
-	    function _class(props) {
-	        _classCallCheck(this, _class);
-
-	        var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
-
-	        _this.onDrop = _this.onDrop.bind(_this);
-	        _this.onOpenClick = _this.onOpenClick.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(_class, [{
-	        key: 'onDrop',
-	        value: function onDrop(acceptedFiles) {
-	            var onChange = this.props.onChange;
-
-	            if (acceptedFiles && acceptedFiles.length > 0) {
-	                var file = acceptedFiles[0];
-	                _superagent2.default.put('/api/oss').attach('file', file).on('progress', function (e) {
-	                    //console.log(e.percent);
-	                }).end(function (err, response) {
-	                    if (err) {
-	                        alert(err);
-	                    } else {
-	                        if (typeof onChange === 'function') {
-	                            var fileUrl = response.body && response.body.data ? response.body.data.url : null;
-	                            onChange(fileUrl);
-	                        }
-	                    }
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'onOpenClick',
-	        value: function onOpenClick() {
-	            this.refs.dropzone.open();
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _props = this.props,
-	                value = _props.value,
-	                onChange = _props.onChange,
-	                containerClass = _props.containerClass,
-	                containerProps = _props.containerProps,
-	                imgProps = _props.imgProps,
-	                other = _objectWithoutProperties(_props, ['value', 'onChange', 'containerClass', 'containerProps', 'imgProps']);
-
-	            containerClass = containerClass ? containerClass : 'image-uploader';
-	            containerClass = containerClass + (value == null ? ' unkonw' : '');
-	            return _react2.default.createElement(
-	                'div',
-	                _extends({ className: containerClass, onClick: this.onOpenClick }, containerProps),
-	                _react2.default.createElement(_reactDropzone2.default, _extends({ ref: 'dropzone', onDrop: this.onDrop, style: { display: 'none' } }, other)),
-	                _react2.default.createElement('img', _extends({ src: value, className: 'previewer' }, imgProps))
-	            );
-	        }
-	    }]);
-
-	    return _class;
-	}(_react2.default.Component);
-
-	exports.default = _class;
 
 /***/ }
 /******/ ]);

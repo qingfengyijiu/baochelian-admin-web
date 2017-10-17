@@ -16,9 +16,9 @@ class ListPage extends React.Component {
     }
 
     componentDidMount() {
-        document.title = '规格种类管理';
+        document.title = '规格种类列表';
         let {actions} = this.props;
-        actions.utilAction.changeNavActive(navIds.COUNT_LIST);
+        actions.utilAction.changeNavActive(navIds.SPECIFICATION_CATEGORY_LIST);
         this.refresh();
     }
 
