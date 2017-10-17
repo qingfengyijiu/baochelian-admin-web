@@ -52,7 +52,7 @@ app.get('*', function(req, res) {
             cpId = tokenInfo.cpInfo.id;
         }
         res.render('index', {
-            title: '话费管理系统',
+            title: '保车连后台管理系统',
             userName: tokenInfo.name,
             loginType: tokenInfo.loginType,
             roleId: tokenInfo.role && tokenInfo.role.roleId != null ? tokenInfo.role.roleId : '',
