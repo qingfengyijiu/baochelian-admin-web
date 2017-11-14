@@ -26,6 +26,8 @@ class UpdatePage extends React.Component {
             actions.utilAction.hideLoading();
             if(response.code == 0) {
                 form.model = response.data;
+                form.model.picture = response.data.picture ? response.data.picture.split(",") : null;
+                form.model.thumbnail = response.data.thumbnail ? response.data.thumbnail.split(",") : null;
                 actions.thisAction.changeForm(form);
             }
         });
@@ -37,10 +39,10 @@ class UpdatePage extends React.Component {
 
         //  提交数据
         let {form, actions, params} = this.props;
-        form.model.ctime=null;
-        form.model.utime=null;
-
         actions.utilAction.showLoading();
+	    form.model.thumbnail = form.model.thumbnail ? form.model.thumbnail.join(",") : null;
+	    form.model.picture = form.model.picture ? form.model.picture.join(",") : null;
+	    form.model.saleVolume = 10;
         ws.post({
             url: '/api/spu/' + params.id,
             data: form.model

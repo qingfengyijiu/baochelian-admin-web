@@ -1,3 +1,4 @@
+@import "antd/antd.min.css";
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -18527,9 +18528,18 @@ body {
 .slideImg-list-item-img.unkown {
   background: gray;
 }
+.image-uploader-group:before,
+.image-uploader-group:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
 .image-uploader {
+  float: left;
   margin-top: 10px;
   width: 100px;
+  position: relative;
+  margin-right: 10px;
 }
 .image-uploader.multiple {
   float: left;
@@ -18544,6 +18554,15 @@ body {
   float: left;
   background: url(../images/image_uploader_bg_unknow.png);
 }
+.image-uploader .image-uploader-btn-delete {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  border-radius: 50%;
+}
+.image-uploader .image-uploader-btn-delete:hover {
+  color: #000000;
+}
 .imgsize {
   float: left;
   margin: 50px 0 0 20px;
@@ -18551,4 +18570,11 @@ body {
 .grid-container {
   overflow-x: auto;
   overflow-y: hidden;
+}
+.form-in-table th {
+  background: #F0F0F0;
+  border: 1px solid #B7B7B7;
+  height: 41px;
+  text-align: center;
+  vertical-align: middle;
 }

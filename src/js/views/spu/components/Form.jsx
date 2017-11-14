@@ -5,16 +5,14 @@ import {Link} from 'react-router';
 import history from '../../history.jsx';
 import ws from '../../../lib/ws';
 import ImageUploader from '../../ImageUploader.jsx';
+import ImageUploaderGroup from '../../ImageUploaderGroup.jsx';
 
-const levelList = [{
-    key: 1,
-    value: "等级一"
+const statusList = [{
+    key: false,
+    value: "上架"
 }, {
-    key: 2,
-    value: "等级二"
-}, {
-    key: 3,
-    value: "等级三"
+    key: true,
+    value: "下架"
 }];
 
 export default class extends React.Component {
@@ -24,11 +22,28 @@ export default class extends React.Component {
         this.state = {
             brandList: [],
             classificationList: [],
-            specificationList: []
+            specificationCategoryList: []
         }
     }
 
     componentDidMount() {
+        ws.get({
+            url: '/api/brand'
+        }).then(response => {
+            if(response.code == 0) {
+                let brandList = response.data.brands.map(item => {
+                    return {
+                        key: item.id,
+                        value: item.name
+                    }
+                });
+                this.setState({
+                    brandList
+                });
+            } else {
+                alert(response.message);
+            }
+        });
         ws.get({
             url: '/api/classification'
         }).then(response => {
@@ -36,15 +51,31 @@ export default class extends React.Component {
                 let classificationList = response.data.classifications.map(item => {
 	                return {
 		                key: item.id,
-		                value: item.name,
-                        level: item.level
+		                value: item.name
 	                }
                 });
                 this.setState({
                     classificationList: classificationList
                 });
             } else {
-                alert(response.msg);
+                alert(response.message);
+            }
+        });
+        ws.get({
+            url: '/api/specificationCategory'
+        }).then(response => {
+            if(response.code == 0) {
+                let specificationCategoryList = response.data.categories.map(item => {
+                    return {
+                        key: item.id,
+                        value: item.name
+                    }
+                })
+                this.setState({
+                    specificationCategoryList
+                });
+            } else {
+                alert(response.message);
             }
         })
     }
@@ -53,18 +84,6 @@ export default class extends React.Component {
         return function(value) {
             let {form, actions} = this.props,
                 {classificationList} = this.state;
-            if(field == "level"){
-                if(value == null || value == 1) {
-                    this.setState({
-                        classificationListForSelect: []
-                    });
-                } else {
-                    console.log(classificationList);
-                    this.setState({
-                        classificationListForSelect: classificationList.filter(item => item.level == value - 1)
-                    })
-                }
-            }
             form.model[field] = value;
             form.errors[field] = validate(field)(value, form.model);
             actions.thisAction.changeForm(form);
@@ -85,47 +104,58 @@ export default class extends React.Component {
       history.goBack();
     }
 
+    getSpuPictureView = () => {
+        let picture = this.props.model.picture,
+            links = picture ? picture.split(",") : [];
+        links.push(null);
+        return links.map(item => {
+            return (
+                <ImageUploader key={item} value={item} businessType="spu_picture" onChange={this.onChangeField("picture").bind(this)}/>
+            )
+        })
+    }
+
     render() {
         let {form, onSubmit} = this.props,
-            {brandList, classificationList, specificationList} = this.state,
+            {brandList, classificationList, specificationCategoryList} = this.state,
             {model, errors} = form;
-
         return (
             <div className="form count-form">
                 <FormField label="商品名称" error={errors.name}>
                   <FormField.Input value={model.name} onChange={this.onChangeField('name').bind(this)}/>
                 </FormField>
-                <FormField label="商品描述" error={errors.description}>
-                    <FormField.Input value={model.description} onChange={this.onChangeField('description').bind(this)}/>
+                <FormField label="商品标题" error={errors.description}>
+                    <FormField.Input value={model.title} onChange={this.onChangeField('title').bind(this)}/>
                 </FormField>
                 <FormField label="商品品牌" error={errors.brandId}>
                     <FormField.Select datas={brandList} value={model.brandId} onChange={this.onChangeField('brandId').bind(this)}/>
                 </FormField>
                 <FormField label="商品分组" error={errors.classificationId}>
-                    <FormField.Input value={model.classificationId} onChange={this.onChangeField('classificationId').bind(this)}/>
+                    <FormField.Select datas={classificationList} value={model.classificationId} onChange={this.onChangeField('classificationId').bind(this)}/>
                 </FormField>
-                <FormField label="商品规格一" error={errors.level}>
-                  <FormField.Select datas={levelList} valueType="number" value={model.level} onChange={this.onChangeField('level').bind(this)} />
+                <FormField label="规格一" error={errors.level}>
+                  <FormField.Select datas={specificationCategoryList} value={model.specificationCategoryId1} onChange={this.onChangeField('specificationCategoryId1').bind(this)} />
                 </FormField>
-                <FormField label="商品规格二" error={errors.level}>
-                    <FormField.Select datas={levelList} valueType="number" value={model.level} onChange={this.onChangeField('level').bind(this)} />
+                <FormField label="规格二（可选）" error={errors.level}>
+                    <FormField.Select datas={specificationCategoryList} value={model.specificationCategoryId2} onChange={this.onChangeField('specificationCategoryId2').bind(this)} />
                 </FormField>
-                <FormField label="商品规格三" error={errors.level}>
-                    <FormField.Select datas={levelList} valueType="number" value={model.level} onChange={this.onChangeField('level').bind(this)} />
+                <FormField label="规格三（可选）" error={errors.level}>
+                    <FormField.Select datas={specificationCategoryList} value={model.specificationCategoryId3} onChange={this.onChangeField('specificationCategoryId3').bind(this)} />
                 </FormField>
                 <FormField label="外网价格">
-                  <FormField.Select datas={classificationListForSelect} value={model.parentClassificationLevel} onChange={this.onChangeField('parentClassificationLevel').bind(this)}/>
+                  <FormField.Input value={model.overviewPrice} onChange={this.onChangeField('overviewPrice').bind(this)}/>
                 </FormField>
                 <FormField label="商品状态">
-                    <FormField.Select datas={classificationListForSelect} value={model.parentClassificationLevel} onChange={this.onChangeField('parentClassificationLevel').bind(this)}/>
+                    <FormField.Select datas={statusList} valueType="boolean" value={model.isDeleted} onChange={this.onChangeField('isDeleted').bind(this)}/>
                 </FormField>
                 <FormField label="缩略图">
-                    <ImageUploader value={model.thumbnail} onChange={this.onChangeField("thumbnail").bind(this)}/>
+                    <ImageUploaderGroup value={model.thumbnail} businessType="spu_thumbnail" onChange={this.onChangeField("thumbnail").bind(this)}/>
                 </FormField>
                 <FormField label="商品大图">
-                    <ImageUploader value={model.picture} onChange={this.onChangeField("picture").bind(this)}/>
+                    <ImageUploaderGroup value={model.picture} businessType="spu_picture" onChange={this.onChangeField("picture").bind(this)}/>
                 </FormField>
                 <FormField label="商品描述">
+                    <FormField.Input value={model.description} onChange={this.onChangeField("description").bind(this)}/>
                 </FormField>
                 <FormField>
                   <div className="search-btn-container form form-search">

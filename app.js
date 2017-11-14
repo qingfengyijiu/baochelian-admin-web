@@ -47,10 +47,6 @@ app.get('*', function(req, res) {
     let cpId = '';
     tokenInfo = true;
     if(tokenInfo) {
-        if (tokenInfo.cpInfo) {
-            roleType = tokenInfo.cpInfo.type.typeId;
-            cpId = tokenInfo.cpInfo.id;
-        }
         res.render('index', {
             title: '保车连后台管理系统',
             userName: tokenInfo.name,

@@ -7,6 +7,10 @@ import classification from './classification/reducer';
 import specificationCategory from './specificationCategory/reducer';
 import specification from './specification/reducer';
 import spu from './spu/reducer';
+import sku from './sku/reducer';
+import serviceCategory from './serviceCategory/reducer';
+import service from './service/reducer';
+import coupon from './coupon/reducer';
 
 
 export default combineReducers({
@@ -17,5 +21,9 @@ export default combineReducers({
     classification,
     specificationCategory,
     specification,
-    spu
+    spu,
+    sku,
+    serviceCategory,
+    service,
+    coupon
 })

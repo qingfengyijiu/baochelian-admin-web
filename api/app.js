@@ -10,6 +10,10 @@ app.use('/specificationCategory', require('./router/specificationCategory'));
 app.use('/specification', require('./router/specification'));
 app.use('/spu', require('./router/spu'));
 app.use('/sku', require('./router/sku'));
+app.use('/upload', require('./router/file'));
+app.use('/serviceCategory', require('./router/serviceCategory'));
+app.use('/service', require('./router/service'));
+app.use('/coupon', require('./router/coupon'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

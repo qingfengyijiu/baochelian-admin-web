@@ -38,6 +38,16 @@ router.post('/:id', function(req, res) {
     })
 });
 
+router.get("/list/simple", function(req,res) {
+	ws.get({
+		url: '/op/classifications/simple?level=1',
+		token: getToken(req)
+	}).then(function(response) {
+		res.send(response);
+	})
+});
+
+
 router.get("/:id", function(req,res) {
     ws.get({
         url: '/op/classifications/' + req.params.id,
@@ -45,7 +55,7 @@ router.get("/:id", function(req,res) {
     }).then(function(response) {
         res.send(response);
     })
-})
+});
 
 router.delete("/:id", function(req, res) {
     ws.delete({

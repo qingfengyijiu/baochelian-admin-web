@@ -19,13 +19,19 @@ export let navIds = {
 	SKU_ADD: '700004',
 	yhq: '800000',
 	yhq_ADD: '800001',
-	SERVICE_LIST: '900000',
-	SERVICE_ADD: '900001',
+	SERVICE: '900000',
+	SERVICE_CATEGORY_LIST: '900001',
+	SERVICE_CATEGORY_ADD: '900002',
+	SERVICE_LIST: '900003',
+	SERVICE_ADD: '900004',
 	ORDER_LIST: '010000',
 	WITHDRAW_LIST: '110000',
 	FINANCE_REPORT: '210000',
 	ACCOUNT_LIST: '310000',
-	ACCOUNT_ADD: '310001'
+	ACCOUNT_ADD: '310001',
+	COUPON: '410000',
+	COUPON_LIST: '410001',
+	COUPON_ADD: '410002'
 };
 
 export let navDatas = [{
@@ -94,14 +100,37 @@ export let navDatas = [{
 		text: '新增sku'
 	}]
 }, {
-    id: navIds.SERVICE_LIST,
+    id: navIds.SERVICE,
     text: '服务管理',
-    href: '/service',
     children: [{
+	    id: navIds.SERVICE_CATEGORY_LIST,
+	    text: '服务分类列表',
+	    href: '/serviceCategory'
+    }, {
+	    id: navIds.SERVICE_CATEGORY_ADD,
+	    text: '新增服务分类',
+	    href: '/serviceCategory/add'
+    }, {
+	    id: navIds.SERVICE_LIST,
+	    text: '服务列表',
+	    href: '/service'
+    }, {
         id: navIds.SERVICE_ADD,
         text: '新增服务',
         href: '/service/add'
     }]
+}, {
+	id: navIds.COUPON,
+	text: '优惠券管理',
+	children: [{
+		id: navIds.COUPON_LIST,
+		text: '优惠券列表',
+		href: '/coupon'
+	}, {
+		id: navIds.COUPON_ADD,
+		text: '新增优惠券',
+		href: '/coupon/add'
+	}]
 }];
 
 

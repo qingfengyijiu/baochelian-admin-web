@@ -23,8 +23,10 @@ class AddPage extends React.Component {
     onSubmit() {
         let {form, actions} = this.props;
         actions.utilAction.showLoading();
+        form.model.thumbnail = form.model.thumbnail ? form.model.thumbnail.join(",") : null;
+        form.model.picture = form.model.picture ? form.model.picture.join(",") : null;
         ws.post({
-            url: '/api/classification',
+            url: '/api/spu',
             data: form.model
         }).then(function(response) {
             actions.utilAction.hideLoading();
@@ -33,7 +35,7 @@ class AddPage extends React.Component {
                 actions.thisAction.resetListPagination();
                 history.goBack();
             }else{
-              alert(response.msg);
+              alert(response.message);
             }
         })
     }
