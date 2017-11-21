@@ -13,12 +13,27 @@ class ListPage extends React.Component {
     constructor(props) {
         super(props);
         this.refresh = this.refresh.bind(this);
+        this.state = {
+            brandList: []
+        }
     }
 
     componentDidMount() {
         document.title = 'SPU';
-        let {actions} = this.props;
+        let _this = this,
+            {actions} = this.props;
         actions.utilAction.changeNavActive(navIds.SPU_LIST);
+        ws.get({
+            url: '/api/brand'
+        }).then(response => {
+           if(response.code == 0) {
+               _this.setState({
+                   brandList: response.data
+               });
+           } else {
+               alert(response.message);
+           }
+        });
         this.refresh();
     }
 

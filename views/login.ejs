@@ -87,13 +87,13 @@
 						window.location.href = '/';
 						break;
 					case 100001:
-						_alertError(rsp.message);
+						_alertError(rsp.msg);
 						captchaView.value  = "";
 						window.reloadCaptcha();
 						captchaView.focus();
 						break;
 					default:
-						_alertError(rsp.message);
+						_alertError(rsp.msg);
 						window.reloadCaptcha();
 				}
 			}

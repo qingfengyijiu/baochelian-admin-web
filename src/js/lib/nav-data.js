@@ -95,9 +95,6 @@ export let navDatas = [{
 		id: navIds.SKU_LIST,
 		text: 'sku列表',
 		href: '/sku'
-	}, {
-		id: navIds.SKU_ADD,
-		text: '新增sku'
 	}]
 }, {
     id: navIds.SERVICE,

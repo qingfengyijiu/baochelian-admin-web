@@ -37,7 +37,6 @@ class ListPage extends React.Component {
             <div className="fbt-table">
                 <SearchForm model={queryOptions} actions={actions} onSearch={this.refresh}/>
                 <div className="grid-operation-zone">
-                    <Link className="btn btn-primary" to="/sku/add">新增</Link>
                 </div>
                 <ListGrid ref="grid" {...this.props} refresh={this.refresh}/>
             </div>

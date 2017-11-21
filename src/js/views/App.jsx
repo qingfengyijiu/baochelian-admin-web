@@ -104,7 +104,7 @@ class App extends React.Component{
     render() {
         let {nav, actions, loading} = this.props;
         let contentClass = 'content-container' + (nav.collapse ? ' full-width' : '');
-        let realNav = getNavData(loginType, roleId, roleType);
+        let realNav = getNavData(loginType, roleId);
         return (
             <div id="container">
                 <Header navCollapse={nav.collapse} toggleNavCollapse={this.toggleNavCollapse}/>

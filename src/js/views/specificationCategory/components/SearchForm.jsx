@@ -11,9 +11,6 @@ export default class extends React.Component {
         return function(value) {
             let {model, actions, pagination} = this.props;
             model[field] = value;
-            if(field == 'cpName'){
-              value = '';
-            }
             actions.thisAction.changeListQueryOptions(model);
         }
     }
@@ -36,7 +33,7 @@ export default class extends React.Component {
             <div className="search-container">
                 <div className="search-form-container">
                     <div className="form form-search">
-                        <FormField label="品牌名称">
+                        <FormField label="规格种类名称">
                           <FormField.Input value={model.name} onChange={this.onChangeField('name').bind(this)}/>
                         </FormField>
                     </div>

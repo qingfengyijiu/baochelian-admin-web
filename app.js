@@ -43,19 +43,13 @@ app.get('/captcha', function(req, res) {
 
 app.get('*', function(req, res) {
     var tokenInfo = getTokenInfo(req);
-    let roleType = '';
-    let cpId = '';
-    tokenInfo = true;
     if(tokenInfo) {
         res.render('index', {
             title: '保车连后台管理系统',
             userName: tokenInfo.name,
             loginType: tokenInfo.loginType,
-            roleId: tokenInfo.role && tokenInfo.role.roleId != null ? tokenInfo.role.roleId : '',
-            roleName: tokenInfo.role && tokenInfo.role.roleName != null ? tokenInfo.role.roleName : '',
-            roleType: roleType,
-            cpKey: tokenInfo.cpKey,
-            cpId: cpId
+            roleId: tokenInfo.role && tokenInfo.role.key != null ? tokenInfo.role.key : '',
+            roleName: tokenInfo.role && tokenInfo.role.value != null ? tokenInfo.role.value : '',
         });
     } else {
         res.redirect('/login');

@@ -4,7 +4,7 @@ import {validate} from '../validate.js';
 import {Link} from 'react-router';
 import history from '../../history.jsx';
 import ws from '../../../lib/ws';
-import ImageUploader from '../../ImageUploader.jsx';
+import DateTime from '../../Datetime.jsx';
 
 const statusList = [{
     key: false,
@@ -240,6 +240,12 @@ export default class extends React.Component {
                         </tr>
                         </tbody>
                     </table>
+                </FormField>
+                <FormField label="上架时间">
+                    <DateTime timeFormat={false} onChange={this.onChangeField("onShelf").bind(this)}/>
+                </FormField>
+                <FormField label="下架时间">
+                    <DateTime timeFormat={false} onChange={this.onChangeField("offShelf").bind(this)}/>
                 </FormField>
                 <FormField>
                     <div className="search-btn-container form form-search">

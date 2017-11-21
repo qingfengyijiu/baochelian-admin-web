@@ -5,15 +5,15 @@ export default class extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            brandList: []
+        }
     }
 
     onChangeField(field) {
         return function(value) {
             let {model, actions, pagination} = this.props;
             model[field] = value;
-            if(field == 'cpName'){
-              value = '';
-            }
             actions.thisAction.changeListQueryOptions(model);
         }
     }
@@ -36,8 +36,11 @@ export default class extends React.Component {
             <div className="search-container">
                 <div className="search-form-container">
                     <div className="form form-search">
-                        <FormField label="品牌名称">
+                        <FormField label="商品名称">
                           <FormField.Input value={model.name} onChange={this.onChangeField('name').bind(this)}/>
+                        </FormField>
+                        <FormField label="品牌">
+                            <FormField.Input value={model.brandId} onChange={this.onChangeField('brandId').bind(this)}/>
                         </FormField>
                     </div>
                 </div>
