@@ -36,7 +36,7 @@ export default class extends React.Component {
             <div className="search-container">
                 <div className="search-form-container">
                     <div className="form form-search">
-                        <FormField label="品牌名称">
+                        <FormField label="服务分类名称">
                           <FormField.Input value={model.name} onChange={this.onChangeField('name').bind(this)}/>
                         </FormField>
                     </div>

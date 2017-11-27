@@ -38,6 +38,15 @@ router.post('/:id', function(req, res) {
     })
 });
 
+router.get("/simple", function(req,res) {
+	ws.get({
+		url: '/op/specifications/simple',
+		token: getToken(req)
+	}).then(function(response) {
+		res.send(response);
+	})
+});
+
 router.get("/:id", function(req,res) {
     ws.get({
         url: '/op/specifications/' + req.params.id,
@@ -45,7 +54,7 @@ router.get("/:id", function(req,res) {
     }).then(function(response) {
         res.send(response);
     })
-})
+});
 
 router.delete("/:id", function(req, res) {
     ws.delete({
@@ -54,6 +63,6 @@ router.delete("/:id", function(req, res) {
     }).then(function(response) {
         res.send(response);
     })
-})
+});
 
 module.exports = router;

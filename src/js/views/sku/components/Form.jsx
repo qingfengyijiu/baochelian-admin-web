@@ -51,7 +51,7 @@ export default class extends React.Component {
         });
 
         ws.get({
-            url: '/api/brand'
+            url: '/api/brand/simple'
         }).then(response => {
             if(response.code == 0) {
                 let brandList = response.data.brands.map(item => {
@@ -68,7 +68,7 @@ export default class extends React.Component {
             }
         });
         ws.get({
-            url: '/api/classification'
+            url: '/api/classification/list/simple'
         }).then(response => {
             if(response.code == 0) {
                 let classificationList = response.data.classifications.map(item => {
@@ -85,7 +85,7 @@ export default class extends React.Component {
             }
         });
         ws.get({
-            url: '/api/specificationCategory'
+            url: '/api/specificationCategory/simple'
         }).then(response => {
             if(response.code == 0) {
                 let specificationCategoryList = response.data.categories.map(item => {
@@ -105,8 +105,7 @@ export default class extends React.Component {
 
     onChangeField(field) {
         return function(value) {
-            let {form, actions} = this.props,
-                {classificationList} = this.state;
+            let {form, actions} = this.props;
             form.model[field] = value;
             form.errors[field] = validate(field)(value, form.model);
             actions.thisAction.changeForm(form);

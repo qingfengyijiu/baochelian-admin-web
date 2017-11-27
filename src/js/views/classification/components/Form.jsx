@@ -27,7 +27,7 @@ export default class extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         ws.get({
             url: '/api/classification'
         }).then(response => {
@@ -58,7 +58,6 @@ export default class extends React.Component {
                         classificationListForSelect: []
                     });
                 } else {
-                    console.log(classificationList);
                     this.setState({
                         classificationListForSelect: classificationList.filter(item => item.level == value - 1)
                     })

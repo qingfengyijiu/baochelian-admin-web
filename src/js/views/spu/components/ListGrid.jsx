@@ -20,7 +20,7 @@ export default class extends React.Component {
             index: 'name'
         }, {
             name: '品牌',
-            index: 'brandId'
+            index: 'brandName'
         }, {
             name: '库存',
             index: 'kucun'

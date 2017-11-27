@@ -5,9 +5,6 @@ export default class extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            brandList: []
-        }
     }
 
     onChangeField(field) {
@@ -30,7 +27,7 @@ export default class extends React.Component {
     }
 
     render() {
-        let {model} = this.props;
+        let {model, brandList} = this.props;
 
         return (
             <div className="search-container">
@@ -40,7 +37,7 @@ export default class extends React.Component {
                           <FormField.Input value={model.name} onChange={this.onChangeField('name').bind(this)}/>
                         </FormField>
                         <FormField label="品牌">
-                            <FormField.Input value={model.brandId} onChange={this.onChangeField('brandId').bind(this)}/>
+                            <FormField.Select datas={brandList} value={model.brandId} onChange={this.onChangeField('brandId').bind(this)}/>
                         </FormField>
                     </div>
                 </div>

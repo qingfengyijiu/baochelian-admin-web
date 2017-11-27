@@ -47,6 +47,14 @@ router.get("/list/simple", function(req,res) {
 	})
 });
 
+router.get("/simple", function(req,res) {
+	ws.get({
+		url: '/op/classifications/simple',
+		token: getToken(req)
+	}).then(function(response) {
+		res.send(response);
+	})
+});
 
 router.get("/:id", function(req,res) {
     ws.get({

@@ -24,11 +24,16 @@ class ListPage extends React.Component {
             {actions} = this.props;
         actions.utilAction.changeNavActive(navIds.SPU_LIST);
         ws.get({
-            url: '/api/brand'
+            url: '/api/brand/simple'
         }).then(response => {
            if(response.code == 0) {
                _this.setState({
-                   brandList: response.data
+                   brandList: response.data.brands.map(item => {
+                       return {
+                           key: item.id,
+                           value: item.name
+                       };
+                   })
                });
            } else {
                alert(response.message);
@@ -47,10 +52,11 @@ class ListPage extends React.Component {
     }
 
     render() {
-        let {queryOptions, actions} = this.props;
+        let {queryOptions, actions} = this.props,
+            {brandList} = this.state;
         return (
             <div className="fbt-table">
-                <SearchForm model={queryOptions} actions={actions} onSearch={this.refresh}/>
+                <SearchForm model={queryOptions} actions={actions} onSearch={this.refresh} brandList={brandList}/>
                 <div className="grid-operation-zone">
                     <Link className="btn btn-primary" to="/spu/add">新增</Link>
                 </div>
