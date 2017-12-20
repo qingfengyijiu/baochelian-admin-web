@@ -1,7 +1,7 @@
 var config = {
     base: {
         protocol: 'http',
-        domain: '47.94.1.230:8080'
+        domain: 'core.91bcl.com'
     },
     dev: {
 	    //domain: 'core.91bcl.com'
