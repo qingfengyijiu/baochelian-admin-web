@@ -1,7 +1,7 @@
 var config = {
     base: {
         protocol: 'http',
-        domain: '47.94.1.230:8080'
+        domain: 'core.91bcl.com'
     },
     dev: {
         //domain: '172.16.100.209:9000'
@@ -11,7 +11,8 @@ var config = {
 
     },
     production: {
-        domain: ''
+        //domain: 'core.91bcl.com'
+        //domain: '172.16.1.42:8080'
     },
     dev_cp: {
 

@@ -7,8 +7,6 @@ var validateCaptcha = require("../util/captchaUtil").validate;
 
 router.post('/', function(req, res) {
     var data = req.body;
-    data.loginType = 2;
-    data.role = 2;
     var captchaEncrypted = req.cookies["captcha"];
     var captcha = req.body.captcha;
     var isCaptchaValid = validateCaptcha(captcha, captchaEncrypted);
@@ -19,14 +17,13 @@ router.post('/', function(req, res) {
         });
     } else {
         ws.post({
-            url: '/auth/credentials',
+            url: '/op/auth/credentials',
             data: data
         }).then(function(response) {
             if(response.code == 0) {
                 cookieUtil.setToken(res, response.data);
             }
             delete response.data.token;
-            console.log(response);
             res.status(200).send(response);
         });
     }

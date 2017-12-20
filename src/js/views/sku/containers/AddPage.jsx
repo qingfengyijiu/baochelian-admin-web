@@ -41,12 +41,12 @@ class AddPage extends React.Component {
         ws.post({
             url: '/api/sku',
             data: form.model
-        }).then(function(response) {
+        }).then(response => {
             actions.utilAction.hideLoading();
             if(response.code == 0) {
                 alert('新增成功');
                 actions.thisAction.resetListPagination();
-                history.push("/sku");
+                history.push("/spu/" + this.props.params.id + "sku");
             }else{
               alert(response.message);
             }

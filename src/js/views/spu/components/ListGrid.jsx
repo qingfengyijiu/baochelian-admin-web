@@ -50,6 +50,7 @@ export default class extends React.Component {
                         <Link to={'/spu/' + id + '/update'}>编辑</Link>
                         <a className="btn" onClick={_this.deleteItem.bind(this, id)} href="javascript:void(0)">删除</a>
                         <Link to={'/spu/' + id + '/sku/add'}>新增sku</Link>
+                        <Link to={'/spu/' + id + '/sku'}>sku列表</Link>
                     </div>
                 )
             }

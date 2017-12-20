@@ -40,9 +40,9 @@ export default class extends React.Component {
 		        _this.setState({
 		            specificationCategoryName1: response.data.specificationCategoryName1,
                     specificationCategoryList1: response.data.childSpecifications1 ? response.data.childSpecifications1.map(item => {return {key: item.id, value: item.value}}) : [],
-			        specificationCategoryName2: response.data.specificationCategoryName1,
+			        specificationCategoryName2: response.data.specificationCategoryName2,
 			        specificationCategoryList2: response.data.childSpecifications2 ? response.data.childSpecifications2.map(item => {return {key: item.id, value: item.value}}) : [],
-			        specificationCategoryName3: response.data.specificationCategoryName1,
+			        specificationCategoryName3: response.data.specificationCategoryName3,
 			        specificationCategoryList3: response.data.childSpecifications3 ? response.data.childSpecifications3.map(item => {return {key: item.id, value: item.value}}) : []
                 })
 	        } else {

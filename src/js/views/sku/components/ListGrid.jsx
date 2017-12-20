@@ -138,6 +138,7 @@ export default class extends React.Component {
               url: '/api/sku',
               data: {
                   ...queryOptions,
+	              spuId: params.id,
                   page: pagination.pageNo
               }
           }).then(function(response) {

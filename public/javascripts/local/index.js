@@ -30008,7 +30008,7 @@
 
 	var _route14 = _interopRequireDefault(_route13);
 
-	var _route15 = __webpack_require__(772);
+	var _route15 = __webpack_require__(775);
 
 	var _route16 = _interopRequireDefault(_route15);
 
@@ -38235,10 +38235,6 @@
 			id: navIds.SPU_ADD,
 			text: '新增spu',
 			href: '/spu/add'
-		}, {
-			id: navIds.SKU_LIST,
-			text: 'sku列表',
-			href: '/sku'
 		}]
 	}, {
 		id: navIds.SERVICE,
@@ -47269,6 +47265,10 @@
 
 	var _AddPage4 = _interopRequireDefault(_AddPage3);
 
+	var _ListPage3 = __webpack_require__(772);
+
+	var _ListPage4 = _interopRequireDefault(_ListPage3);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createElement(
@@ -47277,7 +47277,8 @@
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _ListPage2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: ':id/update', component: _UpdatePage2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: ':id/sku/add', component: _AddPage4.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'add', component: _AddPage2.default })
+	    _react2.default.createElement(_reactRouter.Route, { path: 'add', component: _AddPage2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: ':id/sku', component: _ListPage4.default })
 	);
 
 /***/ },
@@ -48210,6 +48211,11 @@
 	                        _reactRouter.Link,
 	                        { to: '/spu/' + id + '/sku/add' },
 	                        '\u65B0\u589Esku'
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactRouter.Link,
+	                        { to: '/spu/' + id + '/sku' },
+	                        'sku\u5217\u8868'
 	                    )
 	                );
 	            }
@@ -48642,6 +48648,8 @@
 	    }, {
 	        key: 'onSubmit',
 	        value: function onSubmit() {
+	            var _this2 = this;
+
 	            var _props = this.props,
 	                form = _props.form,
 	                actions = _props.actions;
@@ -48670,7 +48678,7 @@
 	                if (response.code == 0) {
 	                    alert('新增成功');
 	                    actions.thisAction.resetListPagination();
-	                    _history2.default.push("/sku");
+	                    _history2.default.push("/spu/" + _this2.props.params.id + "sku");
 	                } else {
 	                    alert(response.message);
 	                }
@@ -48799,11 +48807,11 @@
 	                        specificationCategoryList1: response.data.childSpecifications1 ? response.data.childSpecifications1.map(function (item) {
 	                            return { key: item.id, value: item.value };
 	                        }) : [],
-	                        specificationCategoryName2: response.data.specificationCategoryName1,
+	                        specificationCategoryName2: response.data.specificationCategoryName2,
 	                        specificationCategoryList2: response.data.childSpecifications2 ? response.data.childSpecifications2.map(function (item) {
 	                            return { key: item.id, value: item.value };
 	                        }) : [],
-	                        specificationCategoryName3: response.data.specificationCategoryName1,
+	                        specificationCategoryName3: response.data.specificationCategoryName3,
 	                        specificationCategoryList3: response.data.childSpecifications3 ? response.data.childSpecifications3.map(function (item) {
 	                            return { key: item.id, value: item.value };
 	                        }) : []
@@ -65692,44 +65700,6 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(300);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(477);
-
-	var _AddPage = __webpack_require__(649);
-
-	var _AddPage2 = _interopRequireDefault(_AddPage);
-
-	var _ListPage = __webpack_require__(773);
-
-	var _ListPage2 = _interopRequireDefault(_ListPage);
-
-	var _UpdatePage = __webpack_require__(776);
-
-	var _UpdatePage2 = _interopRequireDefault(_UpdatePage);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createElement(
-	    _reactRouter.Route,
-	    { path: 'sku' },
-	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _ListPage2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: ':id/update', component: _UpdatePage2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'add', component: _AddPage2.default })
-	);
-
-/***/ },
-/* 773 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -65740,11 +65710,11 @@
 
 	var _reactRouter = __webpack_require__(477);
 
-	var _ListGrid = __webpack_require__(774);
+	var _ListGrid = __webpack_require__(773);
 
 	var _ListGrid2 = _interopRequireDefault(_ListGrid);
 
-	var _SearchForm = __webpack_require__(775);
+	var _SearchForm = __webpack_require__(774);
 
 	var _SearchForm2 = _interopRequireDefault(_SearchForm);
 
@@ -65842,7 +65812,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ListPage);
 
 /***/ },
-/* 774 */
+/* 773 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66042,6 +66012,7 @@
 	            _main.ws.get({
 	                url: '/api/sku',
 	                data: _extends({}, queryOptions, {
+	                    spuId: params.id,
 	                    page: pagination.pageNo
 	                })
 	            }).then(function (response) {
@@ -66071,7 +66042,7 @@
 	exports.default = _class;
 
 /***/ },
-/* 775 */
+/* 774 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66196,6 +66167,44 @@
 	}(_react2.default.Component);
 
 	exports.default = _class;
+
+/***/ },
+/* 775 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(300);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(477);
+
+	var _AddPage = __webpack_require__(649);
+
+	var _AddPage2 = _interopRequireDefault(_AddPage);
+
+	var _ListPage = __webpack_require__(772);
+
+	var _ListPage2 = _interopRequireDefault(_ListPage);
+
+	var _UpdatePage = __webpack_require__(776);
+
+	var _UpdatePage2 = _interopRequireDefault(_UpdatePage);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createElement(
+	    _reactRouter.Route,
+	    { path: 'sku' },
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _ListPage2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: ':id/update', component: _UpdatePage2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'add', component: _AddPage2.default })
+	);
 
 /***/ },
 /* 776 */

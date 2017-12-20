@@ -74,7 +74,7 @@ function ws(options) {
         var status = reason.statusCode;
         return {
             code: status,
-            msg: '服务端API接口异常'
+            message: '服务端API接口异常'
         }
     }).catch(errors.TransformError, function(reason) {
         logger.info('-------------调用接口--------------------');
@@ -82,7 +82,7 @@ function ws(options) {
         logger.error('响应结果：' + method + ' ' + uri + ' ' + reason);
         return {
             code: 500,
-            msg: '服务端API数据解析错误'
+            message: '服务端API数据解析错误'
         }
     }).catch(function(err) {
         logger.info('-------------调用接口--------------------');
@@ -90,7 +90,7 @@ function ws(options) {
         logger.error('响应结果：' + method + ' ' + uri + ' ' + err);
         return {
             code: 500,
-            msg: '网络异常，请稍后重试'
+            message: '网络异常，请稍后重试'
         }
     });
 }
@@ -121,7 +121,7 @@ ws.delete = function(options) {
 ws.handleResponse = function(response, res) {
     if(response.code >= 400 && response.code <= 599) {
         res.status(response.code);
-        res.send(response.msg);
+        res.send(response.message);
     } else {
         res.json(response);
     }

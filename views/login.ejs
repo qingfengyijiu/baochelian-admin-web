@@ -87,13 +87,13 @@
 						window.location.href = '/';
 						break;
 					case 100001:
-						_alertError(rsp.msg);
+						_alertError(rsp.message);
 						captchaView.value  = "";
 						window.reloadCaptcha();
 						captchaView.focus();
 						break;
 					default:
-						_alertError(rsp.msg);
+						_alertError(rsp.message);
 						window.reloadCaptcha();
 				}
 			}
@@ -101,7 +101,7 @@
 		xhr.open("POST", "/api/login", true);
 		xhr.setRequestHeader('Content-Type', 'application/json');
 		xhr.send(JSON.stringify({
-			phone: name,
+			name: name,
 			password: password,
 			captcha: captcha
 		}));

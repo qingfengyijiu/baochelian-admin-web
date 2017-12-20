@@ -91,10 +91,6 @@ export let navDatas = [{
 		id: navIds.SPU_ADD,
 		text: '新增spu',
 		href: '/spu/add'
-	}, {
-		id: navIds.SKU_LIST,
-		text: 'sku列表',
-		href: '/sku'
 	}]
 }, {
     id: navIds.SERVICE,
