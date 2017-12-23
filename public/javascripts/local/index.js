@@ -67330,7 +67330,7 @@
 	                if (response.code == 0) {
 	                    alert('新增成功');
 	                    actions.thisAction.resetListPagination();
-	                    _history2.default.goBack();
+	                    _history2.default.push('/service');
 	                } else {
 	                    alert(response.message);
 	                }
@@ -93115,7 +93115,7 @@
 	                actions.utilAction.hideLoading();
 	                if (response.code == 0) {
 	                    alert('编辑成功');
-	                    _history2.default.goBack();
+	                    _history2.default.push('/service');
 	                } else {
 	                    alert(response.msg);
 	                }

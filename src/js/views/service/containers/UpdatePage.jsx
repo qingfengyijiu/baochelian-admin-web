@@ -55,7 +55,7 @@ class UpdatePage extends React.Component {
             actions.utilAction.hideLoading();
             if(response.code == 0) {
                 alert('编辑成功');
-                history.goBack();
+	            history.push('/service');
             }else{
               alert(response.msg);
             }

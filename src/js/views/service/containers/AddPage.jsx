@@ -41,7 +41,7 @@ class AddPage extends React.Component {
             if(response.code == 0) {
                 alert('新增成功');
                 actions.thisAction.resetListPagination();
-                history.goBack();
+                history.push('/service');
             }else{
               alert(response.message);
             }
