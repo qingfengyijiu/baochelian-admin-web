@@ -31,34 +31,19 @@ export default class extends React.Component {
             },
             tableColumns: [{
                 key: "name",
-                title: '商品名称',
+                title: 'spu名称',
                 dataIndex: 'name'
             }, {
                 title: '品牌',
                 key: "brandName",
                 dataIndex: "brandName"
-            }, {
-                title: '规格一',
-                key: "specificationId1",
-                dataIndex: "specificationId1"
-            }, {
-                title: '规格二',
-                key: "specificationId2",
-                dataIndex: "specificationId2"
-            }, {
-                title: '规格三',
-                key: "specificationId3",
-                dataIndex: "specificationId3"
-            }, {
-                title: "价格",
-                key: "price",
-                dataIndex: "price"
             }],
             tableSearch: {
                 name: null,
                 brandId: null
             },
-            brandList: []
+            brandList: [],
+            spuRelated: []
         }
     }
 
@@ -76,19 +61,6 @@ export default class extends React.Component {
             }
         })
         ws.get({
-            url: '/api/sku?page=' + tablePagination.current + '&pageSize=' + tablePagination.pageSize
-        }).then(response => {
-	        if(response.code === 0) {
-	            tablePagination.total = response.pagination.total;
-		        this.setState({
-			        tableDatas: response.data.skus,
-                    tablePagination:  tablePagination
-		        });
-	        } else {
-		        alert(response.message);
-	        }
-        });
-        ws.get({
             url: '/api/brand/simple'
         }).then(response => {
             if(response.code === 0) {
@@ -103,7 +75,31 @@ export default class extends React.Component {
             } else {
                 alert(response.message);
             }
-        })
+        });
+        this.searchSpu();
+    }
+
+    searchSpu = () => {
+	    let {tablePagination, tableSearch} = this.state;
+	    ws.get({
+		    url: '/api/spu',
+            data: {
+                ...tableSearch,
+                page: tablePagination.current,
+                pageSize: tablePagination.pageSize
+		    }
+	    }).then(response => {
+		    if(response.code === 0) {
+			    tablePagination.total = response.pagination.total;
+			    this.setState({
+				    tableDatas: response.data.spus,
+				    tablePagination:  tablePagination,
+                    spuRelated: []
+			    });
+		    } else {
+			    alert(response.message);
+		    }
+	    });
     }
 
     onChangeField(field) {
@@ -129,22 +125,14 @@ export default class extends React.Component {
       history.goBack();
     }
 
-    mockData = (t) => {
-        var result = [];
-        for(var i = 0; i < t; i++) {
-            result.push({
-                name: "test" + i,
-                brandName: "测试品牌",
-                specificationId1: "规格一",
-                specificationId2: "规格二",
-                specificationId3: "规格三",
-                price: 80
-            });
-        }
-        return result;
-    }
-
     onChangeRowSelection = (selectedRowKeys, selectedRows) => {
+        let {form, actions} = this.props;
+        form.model.spuRelated = selectedRowKeys.map(item => {
+            return {
+                id: item
+            }
+        });
+        actions.thisAction.changeForm(form);
     }
 
     onChangePagination = (page, size) => {
@@ -170,8 +158,6 @@ export default class extends React.Component {
         let {form, onSubmit} = this.props,
             {serviceCategoryList, tableDatas, tableColumns, tablePagination, brandList, tableSearch} = this.state,
             {model, errors} = form;
-        tableDatas = this.mockData(100);
-        tablePagination.total = 100;
         return (
             <div className="form count-form">
                 <FormField label="服务项目" error={errors.parentServiceId}>
@@ -239,7 +225,7 @@ export default class extends React.Component {
                     <div className="search-container">
                         <div className="search-form-container">
                             <div className="form form-search">
-                                <FormField label="商品名称">
+                                <FormField label="spu名称">
                                     <FormField.Input value={tableSearch.name} onChange={this.onChangeSearchField('name').bind(this)}/>
                                 </FormField>
                                 <FormField label="品牌名称">
@@ -249,11 +235,11 @@ export default class extends React.Component {
                         </div>
                         <div className="search-btn-container form form-search">
                             <FormField>
-                                <button className="btn btn-primary" onClick={this.onSearch}>查询</button>
+                                <button className="btn btn-primary" onClick={this.searchSpu}>查询</button>
                             </FormField>
                         </div>
                     </div>
-                    <Table rowKey="name" dataSource={tableDatas} columns={tableColumns} pagination={tablePagination} rowSelection={{onChange: this.onChangeRowSelection}}></Table>
+                    <Table rowKey="id" dataSource={tableDatas} columns={tableColumns} pagination={tablePagination} rowSelection={{selectedRowKeys: form.model.spuRelated ? form.model.spuRelated.map(item => item.id) : [], onChange: this.onChangeRowSelection}}></Table>
                 </FormField>
                 <FormField>
                     <div className="search-btn-container form form-search">

@@ -35,14 +35,6 @@ export let navIds = {
 };
 
 export let navDatas = [{
-    id: navIds.DASHBOARD,
-    text: '运营概况',
-    href: '/dashboard'
-}, {
-    id: navIds.USER_LIST,
-    text: '用户管理',
-    href: '/user'
-}, {
 	id: navIds.BRAND_LIST,
 	text: '品牌管理',
 	href: '/brand',

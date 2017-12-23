@@ -38179,14 +38179,6 @@
 	};
 
 	var navDatas = exports.navDatas = [{
-		id: navIds.DASHBOARD,
-		text: '运营概况',
-		href: '/dashboard'
-	}, {
-		id: navIds.USER_LIST,
-		text: '用户管理',
-		href: '/user'
-	}, {
 		id: navIds.BRAND_LIST,
 		text: '品牌管理',
 		href: '/brand',
@@ -41118,49 +41110,28 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.validate = validate;
 	exports.validateAll = validateAll;
 	function validate(field) {
-	  return function (value, model) {
-	    var error = null;
-	    switch (field) {
-	      case "name":
-	        if (value != null) {
-	          if (value.toString().length >= 12) {
-	            error = "请输入少于12位的字符串";
-	          }
+	    return function (value, model) {
+	        var error = null;
+	        switch (field) {
+	            default:
+	                break;
 	        }
-	        break;
-	      case "key":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点编号';
-	        }
-	        break;
-	      case "price":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点金额';
-	        }
-	        break;
-	      case 'isDefaultDialog':
-	        if (value == null || value.length == 0) {
-	          error = '请输入UPAY支付界面状态';
-	        }
-	      default:
-	        break;
-	    }
-	    return error;
-	  };
+	        return error;
+	    };
 	}
 
 	function validateAll(model, validate) {
-	  var errors = {};
-	  for (var field in model) {
-	    var value = model[field];
-	    errors[field] = validate(field)(value, model);
-	  }
-	  return errors;
+	    var errors = {};
+	    for (var field in model) {
+	        var value = model[field];
+	        errors[field] = validate(field)(value, model);
+	    }
+	    return errors;
 	}
 
 /***/ },
@@ -42124,49 +42095,28 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.validate = validate;
 	exports.validateAll = validateAll;
 	function validate(field) {
-	  return function (value, model) {
-	    var error = null;
-	    switch (field) {
-	      case "name":
-	        if (value != null) {
-	          if (value.toString().length >= 12) {
-	            error = "请输入少于12位的字符串";
-	          }
+	    return function (value, model) {
+	        var error = null;
+	        switch (field) {
+	            default:
+	                break;
 	        }
-	        break;
-	      case "key":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点编号';
-	        }
-	        break;
-	      case "price":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点金额';
-	        }
-	        break;
-	      case 'isDefaultDialog':
-	        if (value == null || value.length == 0) {
-	          error = '请输入UPAY支付界面状态';
-	        }
-	      default:
-	        break;
-	    }
-	    return error;
-	  };
+	        return error;
+	    };
 	}
 
 	function validateAll(model, validate) {
-	  var errors = {};
-	  for (var field in model) {
-	    var value = model[field];
-	    errors[field] = validate(field)(value, model);
-	  }
-	  return errors;
+	    var errors = {};
+	    for (var field in model) {
+	        var value = model[field];
+	        errors[field] = validate(field)(value, model);
+	    }
+	    return errors;
 	}
 
 /***/ },
@@ -45631,49 +45581,28 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.validate = validate;
 	exports.validateAll = validateAll;
 	function validate(field) {
-	  return function (value, model) {
-	    var error = null;
-	    switch (field) {
-	      case "name":
-	        if (value != null) {
-	          if (value.toString().length >= 12) {
-	            error = "请输入少于12位的字符串";
-	          }
+	    return function (value, model) {
+	        var error = null;
+	        switch (field) {
+	            default:
+	                break;
 	        }
-	        break;
-	      case "key":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点编号';
-	        }
-	        break;
-	      case "price":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点金额';
-	        }
-	        break;
-	      case 'isDefaultDialog':
-	        if (value == null || value.length == 0) {
-	          error = '请输入UPAY支付界面状态';
-	        }
-	      default:
-	        break;
-	    }
-	    return error;
-	  };
+	        return error;
+	    };
 	}
 
 	function validateAll(model, validate) {
-	  var errors = {};
-	  for (var field in model) {
-	    var value = model[field];
-	    errors[field] = validate(field)(value, model);
-	  }
-	  return errors;
+	    var errors = {};
+	    for (var field in model) {
+	        var value = model[field];
+	        errors[field] = validate(field)(value, model);
+	    }
+	    return errors;
 	}
 
 /***/ },
@@ -46603,49 +46532,28 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.validate = validate;
 	exports.validateAll = validateAll;
 	function validate(field) {
-	  return function (value, model) {
-	    var error = null;
-	    switch (field) {
-	      case "name":
-	        if (value != null) {
-	          if (value.toString().length >= 12) {
-	            error = "请输入少于12位的字符串";
-	          }
+	    return function (value, model) {
+	        var error = null;
+	        switch (field) {
+	            default:
+	                break;
 	        }
-	        break;
-	      case "key":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点编号';
-	        }
-	        break;
-	      case "price":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点金额';
-	        }
-	        break;
-	      case 'isDefaultDialog':
-	        if (value == null || value.length == 0) {
-	          error = '请输入UPAY支付界面状态';
-	        }
-	      default:
-	        break;
-	    }
-	    return error;
-	  };
+	        return error;
+	    };
 	}
 
 	function validateAll(model, validate) {
-	  var errors = {};
-	  for (var field in model) {
-	    var value = model[field];
-	    errors[field] = validate(field)(value, model);
-	  }
-	  return errors;
+	    var errors = {};
+	    for (var field in model) {
+	        var value = model[field];
+	        errors[field] = validate(field)(value, model);
+	    }
+	    return errors;
 	}
 
 /***/ },
@@ -47694,49 +47602,28 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.validate = validate;
 	exports.validateAll = validateAll;
 	function validate(field) {
-	  return function (value, model) {
-	    var error = null;
-	    switch (field) {
-	      case "name":
-	        if (value != null) {
-	          if (value.toString().length >= 12) {
-	            error = "请输入少于12位的字符串";
-	          }
+	    return function (value, model) {
+	        var error = null;
+	        switch (field) {
+	            default:
+	                break;
 	        }
-	        break;
-	      case "key":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点编号';
-	        }
-	        break;
-	      case "price":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点金额';
-	        }
-	        break;
-	      case 'isDefaultDialog':
-	        if (value == null || value.length == 0) {
-	          error = '请输入UPAY支付界面状态';
-	        }
-	      default:
-	        break;
-	    }
-	    return error;
-	  };
+	        return error;
+	    };
 	}
 
 	function validateAll(model, validate) {
-	  var errors = {};
-	  for (var field in model) {
-	    var value = model[field];
-	    errors[field] = validate(field)(value, model);
-	  }
-	  return errors;
+	    var errors = {};
+	    for (var field in model) {
+	        var value = model[field];
+	        errors[field] = validate(field)(value, model);
+	    }
+	    return errors;
 	}
 
 /***/ },
@@ -49213,49 +49100,28 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.validate = validate;
 	exports.validateAll = validateAll;
 	function validate(field) {
-	  return function (value, model) {
-	    var error = null;
-	    switch (field) {
-	      case "name":
-	        if (value != null) {
-	          if (value.toString().length >= 12) {
-	            error = "请输入少于12位的字符串";
-	          }
+	    return function (value, model) {
+	        var error = null;
+	        switch (field) {
+	            default:
+	                break;
 	        }
-	        break;
-	      case "key":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点编号';
-	        }
-	        break;
-	      case "price":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点金额';
-	        }
-	        break;
-	      case 'isDefaultDialog':
-	        if (value == null || value.length == 0) {
-	          error = '请输入UPAY支付界面状态';
-	        }
-	      default:
-	        break;
-	    }
-	    return error;
-	  };
+	        return error;
+	    };
 	}
 
 	function validateAll(model, validate) {
-	  var errors = {};
-	  for (var field in model) {
-	    var value = model[field];
-	    errors[field] = validate(field)(value, model);
-	  }
-	  return errors;
+	    var errors = {};
+	    for (var field in model) {
+	        var value = model[field];
+	        errors[field] = validate(field)(value, model);
+	    }
+	    return errors;
 	}
 
 /***/ },
@@ -65866,13 +65732,34 @@
 	            index: 'serial'
 	        }, {
 	            name: '规格一',
-	            index: 'specificationId1'
+	            index: 'specificationId1',
+	            formatter: function formatter(value, options, rowObject) {
+	                if (rowObject.specificationId1 != null) {
+	                    return rowObject.specificationCategoryName1 + "（" + rowObject.specificationValue1 + "）";
+	                } else {
+	                    return "";
+	                }
+	            }
 	        }, {
 	            name: '规格二',
-	            index: 'specificationId2'
+	            index: 'specificationId2',
+	            formatter: function formatter(value, options, rowObject) {
+	                if (rowObject.specificationId2 != null) {
+	                    return rowObject.specificationCategoryName2 + "（" + rowObject.specificationValue2 + "）";
+	                } else {
+	                    return "";
+	                }
+	            }
 	        }, {
 	            name: '规格三',
-	            index: 'specificationId3'
+	            index: 'specificationId3',
+	            formatter: function formatter(value, options, rowObject) {
+	                if (rowObject.specificationId3 != null) {
+	                    return rowObject.specificationCategoryName3 + "（" + rowObject.specificationValue3 + "）";
+	                } else {
+	                    return "";
+	                }
+	            }
 	        }, {
 	            name: '售价',
 	            index: 'salePrice'
@@ -65908,9 +65795,9 @@
 	            }
 	        }, {
 	            name: '保哥分润',
-	            index: 'profitAllocations.technicanFee',
+	            index: 'profitAllocations.technicianFee',
 	            formatter: function formatter(value, options, rowObject) {
-	                return rowObject.profitAllocations ? rowObject.profitAllocations.technicanFee : '';
+	                return rowObject.profitAllocations ? rowObject.profitAllocations.technicianFee : '';
 	            }
 	        }, {
 	            name: '一级推荐人分润',
@@ -65920,9 +65807,9 @@
 	            }
 	        }, {
 	            name: '二级推荐人分润',
-	            index: 'profitAllocations.grandapaRefererFee',
+	            index: 'profitAllocations.grandpaRefererFee',
 	            formatter: function formatter(value, options, rowObject) {
-	                return rowObject.profitAllocations ? rowObject.profitAllocations.grandapaRefererFee : '';
+	                return rowObject.profitAllocations ? rowObject.profitAllocations.grandpaRefererFee : '';
 	            }
 	        }, {
 	            name: '一级运营中心',
@@ -65938,7 +65825,10 @@
 	            }
 	        }, {
 	            name: '司机返现',
-	            index: 'profitAllocations.fanxian'
+	            index: 'profitAllocations.driverFee',
+	            formatter: function formatter(value, options, rowObject) {
+	                return rowObject.profitAllocations ? rowObject.profitAllocations.driverFee : '';
+	            }
 	        }, {
 	            name: '操作',
 	            index: 'operation',
@@ -66699,49 +66589,28 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.validate = validate;
 	exports.validateAll = validateAll;
 	function validate(field) {
-	  return function (value, model) {
-	    var error = null;
-	    switch (field) {
-	      case "name":
-	        if (value != null) {
-	          if (value.toString().length >= 12) {
-	            error = "请输入少于12位的字符串";
-	          }
+	    return function (value, model) {
+	        var error = null;
+	        switch (field) {
+	            default:
+	                break;
 	        }
-	        break;
-	      case "key":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点编号';
-	        }
-	        break;
-	      case "price":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点金额';
-	        }
-	        break;
-	      case 'isDefaultDialog':
-	        if (value == null || value.length == 0) {
-	          error = '请输入UPAY支付界面状态';
-	        }
-	      default:
-	        break;
-	    }
-	    return error;
-	  };
+	        return error;
+	    };
 	}
 
 	function validateAll(model, validate) {
-	  var errors = {};
-	  for (var field in model) {
-	    var value = model[field];
-	    errors[field] = validate(field)(value, model);
-	  }
-	  return errors;
+	    var errors = {};
+	    for (var field in model) {
+	        var value = model[field];
+	        errors[field] = validate(field)(value, model);
+	    }
+	    return errors;
 	}
 
 /***/ },
@@ -67509,6 +67378,8 @@
 	    value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(300);
@@ -67567,22 +67438,43 @@
 
 	        var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
 
-	        _this.mockData = function (t) {
-	            var result = [];
-	            for (var i = 0; i < t; i++) {
-	                result.push({
-	                    name: "test" + i,
-	                    brandName: "测试品牌",
-	                    specificationId1: "规格一",
-	                    specificationId2: "规格二",
-	                    specificationId3: "规格三",
-	                    price: 80
-	                });
-	            }
-	            return result;
+	        _this.searchSpu = function () {
+	            var _this$state = _this.state,
+	                tablePagination = _this$state.tablePagination,
+	                tableSearch = _this$state.tableSearch;
+
+	            _ws2.default.get({
+	                url: '/api/spu',
+	                data: _extends({}, tableSearch, {
+	                    page: tablePagination.current,
+	                    pageSize: tablePagination.pageSize
+	                })
+	            }).then(function (response) {
+	                if (response.code === 0) {
+	                    tablePagination.total = response.pagination.total;
+	                    _this.setState({
+	                        tableDatas: response.data.spus,
+	                        tablePagination: tablePagination,
+	                        spuRelated: []
+	                    });
+	                } else {
+	                    alert(response.message);
+	                }
+	            });
 	        };
 
-	        _this.onChangeRowSelection = function (selectedRowKeys, selectedRows) {};
+	        _this.onChangeRowSelection = function (selectedRowKeys, selectedRows) {
+	            var _this$props = _this.props,
+	                form = _this$props.form,
+	                actions = _this$props.actions;
+
+	            form.model.spuRelated = selectedRowKeys.map(function (item) {
+	                return {
+	                    id: item
+	                };
+	            });
+	            actions.thisAction.changeForm(form);
+	        };
 
 	        _this.onChangePagination = function (page, size) {
 	            var tablePagination = _this.state.tablePagination;
@@ -67616,34 +67508,19 @@
 	            },
 	            tableColumns: [{
 	                key: "name",
-	                title: '商品名称',
+	                title: 'spu名称',
 	                dataIndex: 'name'
 	            }, {
 	                title: '品牌',
 	                key: "brandName",
 	                dataIndex: "brandName"
-	            }, {
-	                title: '规格一',
-	                key: "specificationId1",
-	                dataIndex: "specificationId1"
-	            }, {
-	                title: '规格二',
-	                key: "specificationId2",
-	                dataIndex: "specificationId2"
-	            }, {
-	                title: '规格三',
-	                key: "specificationId3",
-	                dataIndex: "specificationId3"
-	            }, {
-	                title: "价格",
-	                key: "price",
-	                dataIndex: "price"
 	            }],
 	            tableSearch: {
 	                name: null,
 	                brandId: null
 	            },
-	            brandList: []
+	            brandList: [],
+	            spuRelated: []
 	        };
 	        return _this;
 	    }
@@ -67671,19 +67548,6 @@
 	                }
 	            });
 	            _ws2.default.get({
-	                url: '/api/sku?page=' + tablePagination.current + '&pageSize=' + tablePagination.pageSize
-	            }).then(function (response) {
-	                if (response.code === 0) {
-	                    tablePagination.total = response.pagination.total;
-	                    _this2.setState({
-	                        tableDatas: response.data.skus,
-	                        tablePagination: tablePagination
-	                    });
-	                } else {
-	                    alert(response.message);
-	                }
-	            });
-	            _ws2.default.get({
 	                url: '/api/brand/simple'
 	            }).then(function (response) {
 	                if (response.code === 0) {
@@ -67699,6 +67563,7 @@
 	                    alert(response.message);
 	                }
 	            });
+	            this.searchSpu();
 	        }
 	    }, {
 	        key: 'onChangeField',
@@ -67748,8 +67613,6 @@
 	                model = form.model,
 	                errors = form.errors;
 
-	            tableDatas = this.mockData(100);
-	            tablePagination.total = 100;
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'form count-form' },
@@ -67896,7 +67759,7 @@
 	                                { className: 'form form-search' },
 	                                _react2.default.createElement(
 	                                    _FormField2.default,
-	                                    { label: '\u5546\u54C1\u540D\u79F0' },
+	                                    { label: 'spu\u540D\u79F0' },
 	                                    _react2.default.createElement(_FormField2.default.Input, { value: tableSearch.name, onChange: this.onChangeSearchField('name').bind(this) })
 	                                ),
 	                                _react2.default.createElement(
@@ -67914,13 +67777,15 @@
 	                                null,
 	                                _react2.default.createElement(
 	                                    'button',
-	                                    { className: 'btn btn-primary', onClick: this.onSearch },
+	                                    { className: 'btn btn-primary', onClick: this.searchSpu },
 	                                    '\u67E5\u8BE2'
 	                                )
 	                            )
 	                        )
 	                    ),
-	                    _react2.default.createElement(_table2.default, { rowKey: 'name', dataSource: tableDatas, columns: tableColumns, pagination: tablePagination, rowSelection: { onChange: this.onChangeRowSelection } })
+	                    _react2.default.createElement(_table2.default, { rowKey: 'id', dataSource: tableDatas, columns: tableColumns, pagination: tablePagination, rowSelection: { selectedRowKeys: form.model.spuRelated ? form.model.spuRelated.map(function (item) {
+	                                return item.id;
+	                            }) : [], onChange: this.onChangeRowSelection } })
 	                ),
 	                _react2.default.createElement(
 	                    _FormField2.default,
@@ -67964,49 +67829,28 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.validate = validate;
 	exports.validateAll = validateAll;
 	function validate(field) {
-	  return function (value, model) {
-	    var error = null;
-	    switch (field) {
-	      case "name":
-	        if (value != null) {
-	          if (value.toString().length >= 12) {
-	            error = "请输入少于12位的字符串";
-	          }
+	    return function (value, model) {
+	        var error = null;
+	        switch (field) {
+	            default:
+	                break;
 	        }
-	        break;
-	      case "key":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点编号';
-	        }
-	        break;
-	      case "price":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点金额';
-	        }
-	        break;
-	      case 'isDefaultDialog':
-	        if (value == null || value.length == 0) {
-	          error = '请输入UPAY支付界面状态';
-	        }
-	      default:
-	        break;
-	    }
-	    return error;
-	  };
+	        return error;
+	    };
 	}
 
 	function validateAll(model, validate) {
-	  var errors = {};
-	  for (var field in model) {
-	    var value = model[field];
-	    errors[field] = validate(field)(value, model);
-	  }
-	  return errors;
+	    var errors = {};
+	    for (var field in model) {
+	        var value = model[field];
+	        errors[field] = validate(field)(value, model);
+	    }
+	    return errors;
 	}
 
 /***/ },
@@ -93884,49 +93728,28 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.validate = validate;
 	exports.validateAll = validateAll;
 	function validate(field) {
-	  return function (value, model) {
-	    var error = null;
-	    switch (field) {
-	      case "name":
-	        if (value != null) {
-	          if (value.toString().length >= 12) {
-	            error = "请输入少于12位的字符串";
-	          }
+	    return function (value, model) {
+	        var error = null;
+	        switch (field) {
+	            default:
+	                break;
 	        }
-	        break;
-	      case "key":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点编号';
-	        }
-	        break;
-	      case "price":
-	        if (value == null || value.length == 0) {
-	          error = '请输入计费点金额';
-	        }
-	        break;
-	      case 'isDefaultDialog':
-	        if (value == null || value.length == 0) {
-	          error = '请输入UPAY支付界面状态';
-	        }
-	      default:
-	        break;
-	    }
-	    return error;
-	  };
+	        return error;
+	    };
 	}
 
 	function validateAll(model, validate) {
-	  var errors = {};
-	  for (var field in model) {
-	    var value = model[field];
-	    errors[field] = validate(field)(value, model);
-	  }
-	  return errors;
+	    var errors = {};
+	    for (var field in model) {
+	        var value = model[field];
+	        errors[field] = validate(field)(value, model);
+	    }
+	    return errors;
 	}
 
 /***/ },

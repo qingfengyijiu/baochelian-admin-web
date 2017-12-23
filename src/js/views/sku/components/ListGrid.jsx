@@ -17,13 +17,34 @@ export default class extends React.Component {
             index: 'serial'
         }, {
             name: '规格一',
-            index: 'specificationId1'
+            index: 'specificationId1',
+	        formatter: function(value, options, rowObject) {
+            	if(rowObject.specificationId1 != null) {
+		            return rowObject.specificationCategoryName1 + "（" + rowObject.specificationValue1 +"）";
+	            } else {
+            		return "";
+	            }
+	        }
         }, {
             name: '规格二',
-            index: 'specificationId2'
+            index: 'specificationId2',
+	        formatter: function(value, options, rowObject) {
+		        if(rowObject.specificationId2 != null) {
+			        return rowObject.specificationCategoryName2 + "（" + rowObject.specificationValue2 +"）";
+		        } else {
+			        return "";
+		        }
+	        }
         }, {
             name: '规格三',
-            index: 'specificationId3'
+            index: 'specificationId3',
+	        formatter: function(value, options, rowObject) {
+		        if(rowObject.specificationId3 != null) {
+			        return rowObject.specificationCategoryName3 + "（" + rowObject.specificationValue3 +"）";
+		        } else {
+			        return "";
+		        }
+	        }
         }, {
             name: '售价',
             index: 'salePrice'
@@ -59,9 +80,9 @@ export default class extends React.Component {
             }
         }, {
 	        name: '保哥分润',
-	        index: 'profitAllocations.technicanFee',
+	        index: 'profitAllocations.technicianFee',
             formatter: function(value, options, rowObject) {
-	            return rowObject.profitAllocations ? rowObject.profitAllocations.technicanFee : '';
+	            return rowObject.profitAllocations ? rowObject.profitAllocations.technicianFee : '';
             }
         }, {
 	        name: '一级推荐人分润',
@@ -71,9 +92,9 @@ export default class extends React.Component {
             }
         }, {
 	        name: '二级推荐人分润',
-	        index: 'profitAllocations.grandapaRefererFee',
+	        index: 'profitAllocations.grandpaRefererFee',
             formatter: function(value, options, rowObject) {
-	            return rowObject.profitAllocations ? rowObject.profitAllocations.grandapaRefererFee : '';
+	            return rowObject.profitAllocations ? rowObject.profitAllocations.grandpaRefererFee : '';
             }
         }, {
 	        name: '一级运营中心',
@@ -89,7 +110,10 @@ export default class extends React.Component {
             }
         }, {
 	        name: '司机返现',
-	        index: 'profitAllocations.fanxian'
+	        index: 'profitAllocations.driverFee',
+	        formatter: function(value, options, rowObject) {
+		        return rowObject.profitAllocations ? rowObject.profitAllocations.driverFee : '';
+	        }
         }, {
             name: '操作',
             index: 'operation',
