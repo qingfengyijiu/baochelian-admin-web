@@ -48535,8 +48535,6 @@
 	    }, {
 	        key: 'onSubmit',
 	        value: function onSubmit() {
-	            var _this2 = this;
-
 	            var _props = this.props,
 	                form = _props.form,
 	                actions = _props.actions;
@@ -48565,7 +48563,7 @@
 	                if (response.code == 0) {
 	                    alert('新增成功');
 	                    actions.thisAction.resetListPagination();
-	                    _history2.default.push("/spu/" + _this2.props.params.id + "sku");
+	                    _history2.default.goBack();
 	                } else {
 	                    alert(response.message);
 	                }

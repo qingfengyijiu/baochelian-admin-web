@@ -46,7 +46,7 @@ class AddPage extends React.Component {
             if(response.code == 0) {
                 alert('新增成功');
                 actions.thisAction.resetListPagination();
-                history.push("/spu/" + this.props.params.id + "sku");
+	            history.goBack();
             }else{
               alert(response.message);
             }
