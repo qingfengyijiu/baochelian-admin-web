@@ -48691,18 +48691,54 @@
 	                if (response.code == 0) {
 	                    _this.setState({
 	                        specificationCategoryName1: response.data.specificationCategoryName1,
-	                        specificationCategoryList1: response.data.childSpecifications1 ? response.data.childSpecifications1.map(function (item) {
-	                            return { key: item.id, value: item.value };
-	                        }) : [],
 	                        specificationCategoryName2: response.data.specificationCategoryName2,
-	                        specificationCategoryList2: response.data.childSpecifications2 ? response.data.childSpecifications2.map(function (item) {
-	                            return { key: item.id, value: item.value };
-	                        }) : [],
-	                        specificationCategoryName3: response.data.specificationCategoryName3,
-	                        specificationCategoryList3: response.data.childSpecifications3 ? response.data.childSpecifications3.map(function (item) {
-	                            return { key: item.id, value: item.value };
-	                        }) : []
+	                        specificationCategoryName3: response.data.specificationCategoryName3
 	                    });
+	                    if (response.data.specificationCategoryId1) {
+	                        _ws2.default.get({
+	                            url: '/api/specificationCategory/' + response.data.specificationCategoryId1 + '/specifications'
+	                        }).then(function (res) {
+	                            if (res.code === 0) {
+	                                _this.setState({
+	                                    specificationCategoryList1: res.data.specifications ? res.data.specifications.map(function (item) {
+	                                        return { key: item.id, value: item.value };
+	                                    }) : []
+	                                });
+	                            } else {
+	                                alert(res.message);
+	                            }
+	                        });
+	                    }
+	                    if (response.data.specificationCategoryId2) {
+	                        _ws2.default.get({
+	                            url: '/api/specificationCategory/' + response.data.specificationCategoryId2 + '/specifications'
+	                        }).then(function (res) {
+	                            if (res.code === 0) {
+	                                _this.setState({
+	                                    specificationCategoryList2: res.data.specifications ? res.data.specifications.map(function (item) {
+	                                        return { key: item.id, value: item.value };
+	                                    }) : []
+	                                });
+	                            } else {
+	                                alert(res.message);
+	                            }
+	                        });
+	                    }
+	                    if (response.data.specificationCategoryId3) {
+	                        _ws2.default.get({
+	                            url: '/api/specificationCategory/' + response.data.specificationCategoryId3 + '/specifications'
+	                        }).then(function (res) {
+	                            if (res.code === 0) {
+	                                _this.setState({
+	                                    specificationCategoryList3: res.data.specifications ? res.data.specifications.map(function (item) {
+	                                        return { key: item.id, value: item.value };
+	                                    }) : []
+	                                });
+	                            } else {
+	                                alert(res.message);
+	                            }
+	                        });
+	                    }
 	                } else {
 	                    alert(response.message);
 	                }
@@ -93972,13 +94008,10 @@
 	            index: 'thresholdPerPerson'
 	        }, {
 	            name: '已领取',
-	            index: 'yilingqu'
+	            index: 'initialCount'
 	        }, {
-	            name: '已使用',
-	            index: 'yishiyong'
-	        }, {
-	            name: '领取状态',
-	            index: 'lingstatus'
+	            name: '已领取',
+	            index: 'currentCount'
 	        }, {
 	            name: '操作',
 	            index: 'operation',

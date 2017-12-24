@@ -34,13 +34,10 @@ export default class extends React.Component {
             index: 'thresholdPerPerson'
         }, {
             name: '已领取',
-            index: 'yilingqu'
+            index: 'initialCount'
         }, {
-            name: '已使用',
-            index: 'yishiyong',
-        }, {
-            name: '领取状态',
-            index: 'lingstatus',
+            name: '已领取',
+            index: 'currentCount',
         }, {
             name: '操作',
             index: 'operation',

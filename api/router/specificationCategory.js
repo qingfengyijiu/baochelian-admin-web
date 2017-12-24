@@ -47,6 +47,15 @@ router.get("/simple", function(req,res) {
 	})
 });
 
+router.get("/:id/specifications", function(req,res) {
+	ws.get({
+		url: '/op/specification_categories/' + req.params.id + '/specifications',
+		token: getToken(req)
+	}).then(function(response) {
+		res.send(response);
+	})
+});
+
 router.get("/:id", function(req,res) {
     ws.get({
         url: '/op/specification_categories/' + req.params.id,

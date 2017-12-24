@@ -13,7 +13,7 @@ router.post('/', function(req, res) {
     if(!isCaptchaValid) {
         res.send({
             code: 100001,
-            msg: "验证码不正确"
+            message: "验证码不正确"
         });
     } else {
         ws.post({
@@ -34,7 +34,7 @@ router.post('/logout', function(req, res) {
     cookieUtil.clearToken(res);
     res.send({
         code: 0,
-        msg: '登出成功'
+        message: '登出成功'
     });
 });
 
