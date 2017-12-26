@@ -121,7 +121,7 @@ export default class extends React.Component {
                 var id = rowObject.id;
                 return (
                     <div>
-                        <Link to={'/sku/' + id + '/update'}>编辑</Link>
+                        <Link to={'/spu/' + props.params.id + '/sku/' + id + '/update'}>编辑</Link>
                         <a className="btn" onClick={_this.deleteItem.bind(this, id)} href="javascript:void(0)">删除</a>
                     </div>
                 )

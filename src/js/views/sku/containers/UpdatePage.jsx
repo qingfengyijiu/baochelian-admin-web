@@ -28,7 +28,16 @@ class UpdatePage extends React.Component {
                 form.model = response.data;
                 form.model.picture = response.data.picture ? response.data.picture.split(",") : null;
                 form.model.thumbnail = response.data.thumbnail ? response.data.thumbnail.split(",") : null;
-                actions.thisAction.changeForm(form);
+                if(form.model.profitAllocations) {
+	                form.model.platformFee = form.model.profitAllocations.platformFee;
+                    form.model.driverFee = form.model.profitAllocations.driverFee,
+                    form.model.technicianFee = form.model.profitAllocations.technicianFee,
+                    form.model.parentRefererFee = form.model.profitAllocations.parentRefererFee,
+                    form.model.grandpaRefererFee = form.model.profitAllocations.grandpaRefererFee,
+                    form.model.firstOsFee = form.model.profitAllocations.firstOsFee,
+                    form.model.secondOsFee = form.model.profitAllocations.secondOsFee
+                }
+                actions.thisAction.changeForm(form)
             }
         });
         actions.utilAction.hideLoading();
@@ -59,9 +68,9 @@ class UpdatePage extends React.Component {
     }
 
     render() {
-        let {form, actions} = this.props;
+        let {form, actions, params} = this.props;
         return (
-            <Form form={form} actions={actions} onSubmit={this.onSubmit}/>
+            <Form form={form} actions={actions} onSubmit={this.onSubmit} spuId={params.spuId}/>
         )
     }
 }

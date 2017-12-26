@@ -30008,7 +30008,7 @@
 
 	var _route14 = _interopRequireDefault(_route13);
 
-	var _route15 = __webpack_require__(775);
+	var _route15 = __webpack_require__(776);
 
 	var _route16 = _interopRequireDefault(_route15);
 
@@ -47177,6 +47177,10 @@
 
 	var _ListPage4 = _interopRequireDefault(_ListPage3);
 
+	var _UpdatePage3 = __webpack_require__(775);
+
+	var _UpdatePage4 = _interopRequireDefault(_UpdatePage3);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createElement(
@@ -47185,6 +47189,7 @@
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _ListPage2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: ':id/update', component: _UpdatePage2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: ':id/sku/add', component: _AddPage4.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: ':spuId/sku/:id/update', component: _UpdatePage4.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'add', component: _AddPage2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: ':id/sku', component: _ListPage4.default })
 	);
@@ -49085,12 +49090,12 @@
 	                _react2.default.createElement(
 	                    _FormField2.default,
 	                    { label: '\u4E0A\u67B6\u65F6\u95F4' },
-	                    _react2.default.createElement(_Datetime2.default, { timeFormat: false, onChange: this.onChangeField("onShelf").bind(this) })
+	                    _react2.default.createElement(_Datetime2.default, { value: model.onShelf, timeFormat: false, onChange: this.onChangeField("onShelf").bind(this) })
 	                ),
 	                _react2.default.createElement(
 	                    _FormField2.default,
 	                    { label: '\u4E0B\u67B6\u65F6\u95F4' },
-	                    _react2.default.createElement(_Datetime2.default, { timeFormat: false, onChange: this.onChangeField("offShelf").bind(this) })
+	                    _react2.default.createElement(_Datetime2.default, { value: model.offShelf, timeFormat: false, onChange: this.onChangeField("offShelf").bind(this) })
 	                ),
 	                _react2.default.createElement(
 	                    _FormField2.default,
@@ -65873,7 +65878,7 @@
 	                    null,
 	                    _react2.default.createElement(
 	                        _reactRouter.Link,
-	                        { to: '/sku/' + id + '/update' },
+	                        { to: '/spu/' + props.params.id + '/sku/' + id + '/update' },
 	                        '\u7F16\u8F91'
 	                    ),
 	                    _react2.default.createElement(
@@ -66102,44 +66107,6 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(300);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(477);
-
-	var _AddPage = __webpack_require__(649);
-
-	var _AddPage2 = _interopRequireDefault(_AddPage);
-
-	var _ListPage = __webpack_require__(772);
-
-	var _ListPage2 = _interopRequireDefault(_ListPage);
-
-	var _UpdatePage = __webpack_require__(776);
-
-	var _UpdatePage2 = _interopRequireDefault(_UpdatePage);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createElement(
-	    _reactRouter.Route,
-	    { path: 'sku' },
-	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _ListPage2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: ':id/update', component: _UpdatePage2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'add', component: _AddPage2.default })
-	);
-
-/***/ },
-/* 776 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(300);
@@ -66210,6 +66177,10 @@
 	                    form.model = response.data;
 	                    form.model.picture = response.data.picture ? response.data.picture.split(",") : null;
 	                    form.model.thumbnail = response.data.thumbnail ? response.data.thumbnail.split(",") : null;
+	                    if (form.model.profitAllocations) {
+	                        form.model.platformFee = form.model.profitAllocations.platformFee;
+	                        form.model.driverFee = form.model.profitAllocations.driverFee, form.model.technicianFee = form.model.profitAllocations.technicianFee, form.model.parentRefererFee = form.model.profitAllocations.parentRefererFee, form.model.grandpaRefererFee = form.model.profitAllocations.grandpaRefererFee, form.model.firstOsFee = form.model.profitAllocations.firstOsFee, form.model.secondOsFee = form.model.profitAllocations.secondOsFee;
+	                    }
 	                    actions.thisAction.changeForm(form);
 	                }
 	            });
@@ -66249,9 +66220,10 @@
 	        value: function render() {
 	            var _props3 = this.props,
 	                form = _props3.form,
-	                actions = _props3.actions;
+	                actions = _props3.actions,
+	                params = _props3.params;
 
-	            return _react2.default.createElement(_Form2.default, { form: form, actions: actions, onSubmit: this.onSubmit });
+	            return _react2.default.createElement(_Form2.default, { form: form, actions: actions, onSubmit: this.onSubmit, spuId: params.spuId });
 	        }
 	    }]);
 
@@ -66275,6 +66247,44 @@
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(UpdatePage);
+
+/***/ },
+/* 776 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(300);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(477);
+
+	var _AddPage = __webpack_require__(649);
+
+	var _AddPage2 = _interopRequireDefault(_AddPage);
+
+	var _ListPage = __webpack_require__(772);
+
+	var _ListPage2 = _interopRequireDefault(_ListPage);
+
+	var _UpdatePage = __webpack_require__(775);
+
+	var _UpdatePage2 = _interopRequireDefault(_UpdatePage);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createElement(
+	    _reactRouter.Route,
+	    { path: 'sku' },
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _ListPage2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: ':id/update', component: _UpdatePage2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'add', component: _AddPage2.default })
+	);
 
 /***/ },
 /* 777 */
