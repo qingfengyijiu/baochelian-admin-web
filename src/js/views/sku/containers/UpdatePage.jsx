@@ -54,6 +54,20 @@ class UpdatePage extends React.Component {
 	    form.model.saleVolume = 10;
 	    form.model.onShelf = form.model.onShelf ? form.model.onShelf.substring(0, 10) : null;
 	    form.model.offShelf = form.model.offShelf ? form.model.offShelf.substring(0, 10) : null;
+	    form.model.length = Number(form.model.length);
+	    form.model.height = Number(form.model.height);
+	    form.model.grossWeight = Number(form.model.grossWeight);
+	    form.model.storage = Number(form.model.storage);
+	    form.model.width = Number(form.model.width);
+	    form.model.profitAllocations = {
+		    platformFee: form.model.platformFee,
+		    driverFee: form.model.driverFee,
+		    technicianFee: form.model.technicianFee,
+		    parentRefererFee: form.model.parentRefererFee,
+		    grandpaRefererFee: form.model.grandpaRefererFee,
+		    firstOsFee: form.model.firstOsFee,
+		    secondOsFee: form.model.secondOsFee
+	    }
         ws.post({
             url: '/api/sku/' + params.id,
             data: form.model
