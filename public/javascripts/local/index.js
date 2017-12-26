@@ -49090,12 +49090,12 @@
 	                _react2.default.createElement(
 	                    _FormField2.default,
 	                    { label: '\u4E0A\u67B6\u65F6\u95F4' },
-	                    _react2.default.createElement(_Datetime2.default, { value: model.onShelf, timeFormat: false, onChange: this.onChangeField("onShelf").bind(this) })
+	                    _react2.default.createElement(_Datetime2.default, { value: model.onShelf ? model.onShelf.substring(0, 10) : '', timeFormat: false, onChange: this.onChangeField("onShelf").bind(this) })
 	                ),
 	                _react2.default.createElement(
 	                    _FormField2.default,
 	                    { label: '\u4E0B\u67B6\u65F6\u95F4' },
-	                    _react2.default.createElement(_Datetime2.default, { value: model.offShelf, timeFormat: false, onChange: this.onChangeField("offShelf").bind(this) })
+	                    _react2.default.createElement(_Datetime2.default, { value: model.offShelf ? model.offShelf.substring(0, 10) : '', timeFormat: false, onChange: this.onChangeField("offShelf").bind(this) })
 	                ),
 	                _react2.default.createElement(
 	                    _FormField2.default,
@@ -66201,6 +66201,8 @@
 	            form.model.thumbnail = form.model.thumbnail ? form.model.thumbnail.join(",") : null;
 	            form.model.picture = form.model.picture ? form.model.picture.join(",") : null;
 	            form.model.saleVolume = 10;
+	            form.model.onShelf = form.model.onShelf ? form.model.onShelf.substring(0, 10) : null;
+	            form.model.offShelf = form.model.offShelf ? form.model.offShelf.substring(0, 10) : null;
 	            _main.ws.post({
 	                url: '/api/sku/' + params.id,
 	                data: form.model
@@ -66210,8 +66212,7 @@
 	                    alert('编辑成功');
 	                    _history2.default.goBack();
 	                } else {
-	                    alert(response.msg);
-	                    console.log(response.data);
+	                    alert(response.message);
 	                }
 	            });
 	        }

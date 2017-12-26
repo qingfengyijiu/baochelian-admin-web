@@ -52,6 +52,8 @@ class UpdatePage extends React.Component {
 	    form.model.thumbnail = form.model.thumbnail ? form.model.thumbnail.join(",") : null;
 	    form.model.picture = form.model.picture ? form.model.picture.join(",") : null;
 	    form.model.saleVolume = 10;
+	    form.model.onShelf = form.model.onShelf ? form.model.onShelf.substring(0, 10) : null;
+	    form.model.offShelf = form.model.offShelf ? form.model.offShelf.substring(0, 10) : null;
         ws.post({
             url: '/api/sku/' + params.id,
             data: form.model
@@ -61,8 +63,7 @@ class UpdatePage extends React.Component {
                 alert('编辑成功');
                 history.goBack();
             }else{
-              alert(response.msg);
-              console.log(response.data);
+              alert(response.message);
             }
         })
     }

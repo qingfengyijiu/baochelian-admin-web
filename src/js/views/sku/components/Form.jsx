@@ -277,10 +277,10 @@ export default class extends React.Component {
                     </table>
                 </FormField>
                 <FormField label="上架时间">
-                    <DateTime value={model.onShelf} timeFormat={false} onChange={this.onChangeField("onShelf").bind(this)}/>
+                    <DateTime value={model.onShelf ? model.onShelf.substring(0, 10) : ''} timeFormat={false} onChange={this.onChangeField("onShelf").bind(this)}/>
                 </FormField>
                 <FormField label="下架时间">
-                    <DateTime value={model.offShelf} timeFormat={false} onChange={this.onChangeField("offShelf").bind(this)}/>
+                    <DateTime value={model.offShelf ? model.offShelf.substring(0, 10) : ''} timeFormat={false} onChange={this.onChangeField("offShelf").bind(this)}/>
                 </FormField>
                 <FormField>
                     <div className="search-btn-container form form-search">
