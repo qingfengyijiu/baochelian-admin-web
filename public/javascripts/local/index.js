@@ -94017,7 +94017,7 @@
 	            index: 'name'
 	        }, {
 	            name: '面值',
-	            index: 'mianzhi'
+	            index: 'couponStr'
 	        }, {
 	            name: '有效期',
 	            index: 'validateTerm',
@@ -94030,7 +94030,7 @@
 	            name: '每人限领',
 	            index: 'thresholdPerPerson'
 	        }, {
-	            name: '已领取',
+	            name: '发放量',
 	            index: 'initialCount'
 	        }, {
 	            name: '已领取',
